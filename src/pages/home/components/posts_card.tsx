@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 interface PostsCardProps {
   category: string;
@@ -15,6 +16,8 @@ const PostsCard: React.FC<PostsCardProps> = ({
   createdAt,
   backgroundImage,
 }) => {
+  const navigate = useNavigate();
+
   return (
     <div
       className="m-1 h-56 flex-grow shadow-lg flex flex-col justify-end" // Adjusted for vertical alignment
@@ -23,6 +26,9 @@ const PostsCard: React.FC<PostsCardProps> = ({
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
+      }}
+      onClick={() => {
+        navigate("/posts/3");
       }}
     >
       <div className="p-4">
