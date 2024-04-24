@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 interface PostsCardProps {
+  id: number;
   category: string;
   title: string;
   author: string;
@@ -10,6 +11,7 @@ interface PostsCardProps {
 }
 
 const PostsCard: React.FC<PostsCardProps> = ({
+  id,
   title,
   category,
   author,
@@ -28,7 +30,7 @@ const PostsCard: React.FC<PostsCardProps> = ({
         backgroundRepeat: "no-repeat",
       }}
       onClick={() => {
-        navigate("/posts/3");
+        navigate(`/posts/${id}`);
       }}
     >
       <div className="p-4">
