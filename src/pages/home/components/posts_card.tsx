@@ -1,14 +1,16 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import { PostReportSchema } from "../../../schemas/post-report";
+
 import { z } from "zod";
+import { useNavigate } from "react-router-dom";
+import { format, parseISO } from "date-fns";
 
 const PostsCard: React.FC<z.infer<typeof PostReportSchema>> = (post) => {
   const navigate = useNavigate();
 
   return (
     <div
-      className="m-1 h-56 flex-grow shadow-lg flex flex-col justify-end" // Adjusted for vertical alignment
+      className="m-1 h-56 flex-grow shadow-lg flex flex-col justify-end"
       style={{
         backgroundImage: `url('${post.coverMedia?.url}')`,
         backgroundSize: "cover",
@@ -27,13 +29,25 @@ const PostsCard: React.FC<z.infer<typeof PostReportSchema>> = (post) => {
             </div>
           )}
         </div>
-        <div className="font-bold text-white text-left text-xl mb-2">
+        <div className="font-bold text-gray-100 text-left text-2xl mb-2 drop-shadow-[0_1.6px_1.6px_rgba(0,0,0,0.5)]">
           {post.title}
         </div>
         <div className="flex flex-row">
-          <div className="text-white text-base">{post.author.username}</div>
-          <div className="text-white w-4"> - </div>
-          <div className="text-white text-base">{post.createdAt}</div>
+          {post.author && (
+            <div className="text-white text-base font-semibold drop-shadow-[0_1.6px_1.6px_rgba(0,0,0,0.4)]">
+              {post.author?.username || ""}
+            </div>
+          )}
+          {post.author && (
+            <div className="text-white w-4 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.4)]">
+              {" "}
+              -{" "}
+            </div>
+          )}
+
+          <div className="text-white text-base font-semibold drop-shadow-[0_1.6px_1.6px_rgba(0,0,0,0.4)]">
+            {format(parseISO(post.createdAt), "dd.MM.yyyy")}
+          </div>
         </div>
       </div>
     </div>

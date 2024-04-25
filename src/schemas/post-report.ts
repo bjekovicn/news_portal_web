@@ -41,9 +41,21 @@ const PostReportSchema = z.object({
   id: z.number(),
   title: z.string(),
   createdAt: z.string(),
-  author: AuthorSchema,
+  author: AuthorSchema.nullable(),
   categories: z.array(CategorySchema),
   coverMedia: CoverMediaSchema.nullable(),
 });
 
-export { PostReportSchema };
+export type PostReportType = z.infer<typeof PostReportSchema>;
+export type AuthorType = z.infer<typeof AuthorSchema>;
+export type CategoryType = z.infer<typeof CategorySchema>;
+export type MediaFormatType = z.infer<typeof MediaFormatSchema>;
+export type CoverMediaType = z.infer<typeof CoverMediaSchema>;
+
+export {
+  PostReportSchema,
+  AuthorSchema,
+  CategorySchema,
+  MediaFormatSchema,
+  CoverMediaSchema,
+};
