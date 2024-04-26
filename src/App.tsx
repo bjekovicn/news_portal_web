@@ -1,4 +1,5 @@
 import "./App.css";
+import Footer from "./common/components/footer";
 import Header from "./common/components/header";
 
 import HomePage from "./pages/home/home";
@@ -15,6 +16,7 @@ function App() {
           <Route path="/posts/:id" element={<PostPage />}></Route>
         </Routes>
       </BrowserRouter>
+      <Footer />
     </>
   );
 }
