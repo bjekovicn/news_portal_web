@@ -6,7 +6,7 @@ import axios from "../../config/axios";
 
 const retrievePostData = async (id: string | undefined) => {
   if (!id) return null;
-  const response = await axios.get(`posts/${id}`);
+  const response = await axios.get(`posts/${id}?populate=*`);
   return PostDetailsSchema.parse(response.data);
 };
 
@@ -18,11 +18,23 @@ const PostPage = () => {
 
   if (isLoading) return <div>Fetching posts...</div>;
   if (error) return <div>An error occurred</div>;
+  const coverAttributes = data?.attributes.coverMedia?.data?.attributes;
+  const coverFormats = coverAttributes?.formats;
+  const url = coverAttributes?.url;
+
   return (
-    <>
-      <p>{data?.attributes.title}</p>
+    <div className="container flex flex-col">
+      <p className="text-2xl font-bold mb-12 mt-6">{data?.attributes.title}</p>
+      <p className="">{data?.attributes.shortSummary}</p>
+      {(coverFormats || url) && (
+        <img
+          className="mb-8 mt-8 p-12"
+          src={coverFormats?.large?.url ?? coverFormats?.medium?.url ?? url}
+        ></img>
+      )}
+
       <BlocksRenderer content={data?.attributes.content}></BlocksRenderer>
-    </>
+    </div>
   );
 };
 

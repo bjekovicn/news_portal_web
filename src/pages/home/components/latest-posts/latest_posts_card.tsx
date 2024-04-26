@@ -28,7 +28,7 @@ const LatestPostsCard: React.FC<LatestPostType> = (post) => {
             </div>
           )}
         </div>
-        <div className="font-bold text-gray-100 text-left text-2xl mb-2 drop-shadow-[0_1.6px_1.6px_rgba(0,0,0,0.5)]">
+        <div className="font-bold text-gray-100 text-left text-xl mb-2 drop-shadow-[0_1.6px_1.6px_rgba(0,0,0,0.5)] line-clamp-3">
           {post.title}
         </div>
         <div className="flex flex-row">

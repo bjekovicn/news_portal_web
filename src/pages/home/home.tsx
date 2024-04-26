@@ -7,6 +7,7 @@ const HomePage = () => {
     <div className="container flex flex-col">
       <Trending />
       <LatestPostsLayout />
+
       <RecentPostsLayout />
     </div>
   );
