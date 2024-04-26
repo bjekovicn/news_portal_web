@@ -1,13 +1,13 @@
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
-import { PostSchema } from "../../schemas/post";
+import { PostDetailsSchema } from "../../schemas/post-details-schema";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 import axios from "../../config/axios";
 
 const retrievePostData = async (id: string | undefined) => {
   if (!id) return null;
   const response = await axios.get(`posts/${id}`);
-  return PostSchema.parse(response.data);
+  return PostDetailsSchema.parse(response.data);
 };
 
 const PostPage = () => {

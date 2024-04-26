@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const PostSchema = z.object({
+export const PostDetailsSchema = z.object({
   id: z.number(),
   attributes: z.object({
     title: z.string(),
