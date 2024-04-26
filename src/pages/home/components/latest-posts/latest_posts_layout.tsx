@@ -1,17 +1,17 @@
-import PostsCard from "./posts_card";
-import axios from "../../../config/axios";
+import LatestPostsCard from "./latest_posts_card";
+import axios from "../../../../config/axios";
 
 import { useQuery } from "react-query";
-import { PostReportSchema } from "../../../schemas/post-report";
+import { LatestPostSchema } from "../../../../schemas/latest-post/latest-post";
 
 const retrievePostReports = async () => {
   const response = await axios.get(`posts-report`);
 
-  const posts = PostReportSchema.array().parse(response);
+  const posts = LatestPostSchema.array().parse(response);
   return posts;
 };
 
-const PostsLayout = () => {
+const LatestPostsLayout = () => {
   const { data, error, isLoading } = useQuery(`postReports}`, () =>
     retrievePostReports()
   );
@@ -22,13 +22,13 @@ const PostsLayout = () => {
   return (
     <div className="flex">
       <div className="w-1/2 flex flex-col">
-        {data.length > 0 && <PostsCard key={data[0].id} {...data[0]} />}
+        {data.length > 0 && <LatestPostsCard key={data[0].id} {...data[0]} />}
       </div>
 
       <div className="w-1/2 flex flex-col">
         {data.length > 1 && (
           <div className="h-1/2">
-            <PostsCard key={data[1].id} {...data[1]} />
+            <LatestPostsCard key={data[1].id} {...data[1]} />
           </div>
         )}
 
@@ -36,12 +36,12 @@ const PostsLayout = () => {
           <div className="h-1/2 flex">
             {data.length > 2 && (
               <div className="w-1/2">
-                <PostsCard key={data[2].id} {...data[2]} />
+                <LatestPostsCard key={data[2].id} {...data[2]} />
               </div>
             )}
             {data.length > 3 && (
               <div className="w-1/2">
-                <PostsCard key={data[3].id} {...data[3]} />
+                <LatestPostsCard key={data[3].id} {...data[3]} />
               </div>
             )}
           </div>
@@ -51,4 +51,4 @@ const PostsLayout = () => {
   );
 };
 
-export default PostsLayout;
+export default LatestPostsLayout;
