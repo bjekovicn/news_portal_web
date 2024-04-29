@@ -30,12 +30,12 @@ const PostPage = () => {
       <p className="">{data?.attributes.shortSummary}</p>
       {(coverFormats || url) && (
         <img
-          className="mb-8 mt-8 p-12"
+          className="my-6 lg:my-10"
           src={coverFormats?.large?.url ?? coverFormats?.medium?.url ?? url}
         ></img>
       )}
 
-      <BlocksRenderer content={data?.attributes.content}></BlocksRenderer>
+      <BlocksRenderer content={data?.attributes.content} />
     </div>
   );
 };

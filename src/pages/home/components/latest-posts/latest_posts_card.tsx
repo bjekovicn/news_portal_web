@@ -9,7 +9,7 @@ const LatestPostsCard: React.FC<LatestPostType> = (post) => {
 
   return (
     <div
-      className="m-1 h-56 flex-grow shadow-lg flex flex-col justify-end"
+      className="m-1 h-56 flex-grow shadow-lg flex flex-col justify-end cursor-pointer"
       style={{
         backgroundImage: `url('${post.coverMedia?.url}')`,
         backgroundSize: "cover",
