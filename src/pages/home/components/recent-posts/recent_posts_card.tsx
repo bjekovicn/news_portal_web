@@ -12,17 +12,17 @@ const RecentPostsCard: React.FC<RecentPostType> = (post) => {
 
   return (
     <div
-      className="flex flex-row m-2 h-56"
+      className="flex flex-row m-2 h-56 cursor-pointer"
       onClick={() => navigate(`/posts/${post.id}`)}
     >
       <div
-        className="w-80"
+        className="w-80 shadow-sm"
         style={{
           backgroundImage: `url('${post.coverMedia?.url || logo}')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
-          border: "1px solid #000000",
+          border: "1px solid #efefef",
         }}
       />
       <div className="flex flex-col flex-1 px-5">
