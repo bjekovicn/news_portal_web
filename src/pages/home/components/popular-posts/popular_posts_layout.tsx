@@ -28,7 +28,7 @@ const PopularPostsLayout = () => {
   if (error || !data) return <div>An error occurred</div>;
 
   return (
-    <div className="w-96 flex-1">
+    <div className="flex-1">
       <SectionTitle title={"Popular Posts"} />
       {data.map((post) => {
         return <PopularPostsCard key={post.id} {...post} />;

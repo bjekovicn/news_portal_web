@@ -12,11 +12,11 @@ const PopularPostsCard: React.FC<RecentPostType> = (post) => {
 
   return (
     <div
-      className="flex flex-row m-2 h-36 cursor-pointer"
+      className="flex flex-row m-1 h-36 cursor-pointer"
       onClick={() => navigate(`/posts/${post.id}`)}
     >
       <div
-        className="w-32 h-32 shadow-sm"
+        className="w-28 h-28 min-w-28 min-h-28 md:min-w-32 md:min-h-32 lg:min-w-36 lg:min-h-36  shadow-sm"
         style={{
           backgroundImage: `url('${post.coverMedia?.url || logo}')`,
           backgroundSize: "cover",
@@ -25,13 +25,13 @@ const PopularPostsCard: React.FC<RecentPostType> = (post) => {
           border: "1px solid #efefef",
         }}
       />
-      <div className="flex flex-col flex-1 px-5 ">
-        <p className=" md:text-xl lg:text-2xl font-semibold mb-2 line-clamp-2">
+      <div className="flex flex-col flex-1 pl-5">
+        <p className=" md:text-lg lg:text-xl font-semibold mb-2 line-clamp-2">
           {post.title}
         </p>
 
         <div className="flex">
-          {post.categories.map((category) => {
+          {post.categories.slice(0, 2).map((category) => {
             return <CategoryPill key={category.id} {...category} />;
           })}
         </div>
