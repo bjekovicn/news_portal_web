@@ -7,16 +7,16 @@ import { FaClock, FaComment, FaHeart } from "react-icons/fa";
 import CategoryPill from "../../../../common/components/category_pill";
 import { useNavigate } from "react-router-dom";
 
-const RecentPostsCard: React.FC<RecentPostType> = (post) => {
+const PopularPostsCard: React.FC<RecentPostType> = (post) => {
   const navigate = useNavigate();
 
   return (
     <div
-      className="flex flex-row m-2 h-40 md:h-48 lg:h-56 cursor-pointer"
+      className="flex flex-row m-2 h-36 cursor-pointer"
       onClick={() => navigate(`/posts/${post.id}`)}
     >
       <div
-        className="w-40 md:w-80 lg:w-80 shadow-sm"
+        className="w-32 h-32 shadow-sm"
         style={{
           backgroundImage: `url('${post.coverMedia?.url || logo}')`,
           backgroundSize: "cover",
@@ -25,8 +25,8 @@ const RecentPostsCard: React.FC<RecentPostType> = (post) => {
           border: "1px solid #efefef",
         }}
       />
-      <div className="flex flex-col flex-1 px-5">
-        <p className=" md:text-xl lg:text-2xl font-semibold mb-2 lg:mb-3 line-clamp-2">
+      <div className="flex flex-col flex-1 px-5 ">
+        <p className=" md:text-xl lg:text-2xl font-semibold mb-2 line-clamp-2">
           {post.title}
         </p>
 
@@ -35,11 +35,8 @@ const RecentPostsCard: React.FC<RecentPostType> = (post) => {
             return <CategoryPill key={category.id} {...category} />;
           })}
         </div>
-        <div className="flex flex-col flex-grow mb-1">
-          <p className="text-gray-500 text-sm font-medium flex-1 line-clamp-2 md:line-clamp-3 lg:line-clamp-4">
-            {post.shortSummary}
-          </p>
-          <div className="flex mb-2">
+        <div className="flex flex-col flex-grow justify-end mb-4">
+          <div className="flex">
             <div className="flex gap-1 items-center">
               <FaClock></FaClock>
               <p className="text-gray-500 text-sm font-semibold">
@@ -67,4 +64,4 @@ const RecentPostsCard: React.FC<RecentPostType> = (post) => {
   );
 };
 
-export default RecentPostsCard;
+export default PopularPostsCard;
