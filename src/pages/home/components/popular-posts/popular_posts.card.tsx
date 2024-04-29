@@ -25,15 +25,17 @@ const PopularPostsCard: React.FC<RecentPostType> = (post) => {
           border: "1px solid #efefef",
         }}
       />
-      <div className="flex flex-col flex-1 px-5">
-        <p className="text-xl font-semibold mb-2 line-clamp-2">{post.title}</p>
+      <div className="flex flex-col flex-1 px-5 ">
+        <p className=" md:text-xl lg:text-2xl font-semibold mb-2 line-clamp-2">
+          {post.title}
+        </p>
 
         <div className="flex">
           {post.categories.map((category) => {
             return <CategoryPill key={category.id} {...category} />;
           })}
         </div>
-        <div className="flex flex-col flex-grow">
+        <div className="flex flex-col flex-grow justify-end mb-4">
           <div className="flex">
             <div className="flex gap-1 items-center">
               <FaClock></FaClock>

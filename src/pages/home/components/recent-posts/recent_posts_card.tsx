@@ -12,11 +12,11 @@ const RecentPostsCard: React.FC<RecentPostType> = (post) => {
 
   return (
     <div
-      className="flex flex-row m-2 h-56 cursor-pointer"
+      className="flex flex-row m-2 h-40 md:h-48 lg:h-56 cursor-pointer"
       onClick={() => navigate(`/posts/${post.id}`)}
     >
       <div
-        className="w-80 shadow-sm"
+        className="w-40 md:w-80 lg:w-80 shadow-sm"
         style={{
           backgroundImage: `url('${post.coverMedia?.url || logo}')`,
           backgroundSize: "cover",
@@ -26,7 +26,9 @@ const RecentPostsCard: React.FC<RecentPostType> = (post) => {
         }}
       />
       <div className="flex flex-col flex-1 px-5">
-        <p className="text-2xl font-semibold mb-2 line-clamp-2">{post.title}</p>
+        <p className=" md:text-xl lg:text-2xl font-semibold mb-2 line-clamp-2">
+          {post.title}
+        </p>
 
         <div className="flex">
           {post.categories.map((category) => {
@@ -34,7 +36,7 @@ const RecentPostsCard: React.FC<RecentPostType> = (post) => {
           })}
         </div>
         <div className="flex flex-col flex-grow mb-1">
-          <p className="text-gray-500 text-sm font-medium flex-1 line-clamp-4">
+          <p className="text-gray-500 text-sm font-medium flex-1 line-clamp-2 md:line-clamp-3 lg:line-clamp-4">
             {post.shortSummary}
           </p>
           <div className="flex mb-2">

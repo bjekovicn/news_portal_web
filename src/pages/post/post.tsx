@@ -23,8 +23,10 @@ const PostPage = () => {
   const url = coverAttributes?.url;
 
   return (
-    <div className="container flex flex-col">
-      <p className="text-2xl font-bold mb-12 mt-6">{data?.attributes.title}</p>
+    <div className="container flex flex-col p-4">
+      <p className="text-2xl font-bold mb-12 mt-6 text-start">
+        {data?.attributes.title}
+      </p>
       <p className="">{data?.attributes.shortSummary}</p>
       {(coverFormats || url) && (
         <img

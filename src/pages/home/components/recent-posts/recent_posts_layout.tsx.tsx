@@ -21,7 +21,7 @@ const RecentPostsLayout = () => {
   if (error || !data) return <div>An error occurred</div>;
 
   return (
-    <div className="flex flex-col w-3/5">
+    <div className="flex flex-col w-full md:w-3/5 lg:w-3/5">
       <SectionTitle title={"Recent Posts"} />
       {data.map((post) => {
         return <RecentPostsCard key={post.id} {...post} />;

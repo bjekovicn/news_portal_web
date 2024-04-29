@@ -9,7 +9,7 @@ const HomePage = () => {
       <Trending />
       <LatestPostsLayout />
       <div className="flex flex-col mt-10">
-        <div className="flex flex-row gap-20">
+        <div className="flex flex-col md:flex-row lg:flex-row gap-20">
           <RecentPostsLayout />
           <PopularPostsLayout />
         </div>

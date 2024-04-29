@@ -20,12 +20,12 @@ const LatestPostsLayout = () => {
   if (error || !data) return <div>An error occurred</div>;
 
   return (
-    <div className="flex">
-      <div className="w-1/2 flex flex-col">
+    <div className="flex flex-col md:flex-row p-1">
+      <div className="w-full md:w-1/2 flex flex-col">
         {data.length > 0 && <LatestPostsCard key={data[0].id} {...data[0]} />}
       </div>
 
-      <div className="w-1/2 flex flex-col">
+      <div className="w-full md:w-1/2 flex flex-col">
         {data.length > 1 && (
           <div className="h-1/2">
             <LatestPostsCard key={data[1].id} {...data[1]} />

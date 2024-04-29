@@ -3,7 +3,7 @@ import logo from "../../assets/logo.png";
 const Logo = () => {
   return (
     <div className="flex flex-row ">
-      <div className="w-36 ">
+      <div className="w-24 md:w-36 ">
         <img className="bg-white" src={logo} alt="Logo" />
       </div>
     </div>

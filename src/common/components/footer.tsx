@@ -3,9 +3,9 @@ import Logo from "./logo";
 function Footer() {
   return (
     <div className="flex w-full mt-10 h-96 flex-col">
-      <div className="w-full flex flex-row h-full bg-gray-950 justify-center items-center">
+      <div className="w-full flex flex-col md:flex-row h-full bg-gray-950 justify-center items-center gap-2">
         <Logo />
-        <p className="text-white w-96 mx-36 text-center">
+        <p className="text-white text-xs md:text-sm lg:text-lg  w-96 mx-36 text-center">
           It is a long established fact that a reader will be distracted by the
           readable content of a page when looking at its layout. The point of
           using Lorem Ipsum is that it has a more-or-less normal distribution of
