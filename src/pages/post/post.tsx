@@ -60,7 +60,7 @@ const PostPage = () => {
       )}
 
       <BlocksRenderer content={data?.attributes.content} />
-      <CommentsSection></CommentsSection>
+      <CommentsSection />
     </div>
   );
 };
