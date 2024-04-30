@@ -1,9 +1,13 @@
+import Modal from "react-modal";
+
 import CommentCard from "./comment_card";
 import axios from "../../../config/axios";
 
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import { CommentSchema } from "../../../schemas/comment-schema";
+import { useState } from "react";
+import AddComment from "./add_comments";
 
 const retrieveCommentsData = async (id: string | undefined) => {
   if (!id) return [];
@@ -13,6 +17,11 @@ const retrieveCommentsData = async (id: string | undefined) => {
 };
 
 const CommentsSection = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openModal = () => setIsOpen(true);
+  const closeModal = () => setIsOpen(false);
+
   const { id } = useParams();
   const { data, error, isLoading } = useQuery(`comments${id}`, () =>
     retrieveCommentsData(id)
@@ -24,7 +33,10 @@ const CommentsSection = () => {
     <div className="flex flex-col mt-24">
       <div className="flex justify-between items-center mb-6 border-b-2 border-gray-100 ">
         <p className="text-2xl font-semibold">Komentari</p>
-        <button className="text-white px-4 bg-pink-600 py-2 mt-4 mb-2 ">
+        <button
+          className="text-white px-4 bg-pink-600 py-2 mt-4 mb-2"
+          onClick={openModal}
+        >
           Pošaljite komentar
         </button>
       </div>
@@ -32,6 +44,15 @@ const CommentsSection = () => {
       {data?.map((comment) => {
         return <CommentCard {...comment} isReply={false} key={comment.id} />;
       })}
+
+      <Modal
+        isOpen={isOpen}
+        onRequestClose={closeModal}
+        className="absolute top-0 left-0 right-0 bottom-0 m-auto h-96 max-w-md mx-8 md:mx-auto content-center bg-white p-2"
+        overlayClassName="fixed inset-0 bg-gray-500 bg-opacity-75"
+      >
+        <AddComment />
+      </Modal>
     </div>
   );
 };
