@@ -6,6 +6,7 @@ import axios from "../../config/axios";
 import CategoryPill from "../../common/components/category_pill";
 import { format, parseISO } from "date-fns";
 import { FaRegClock } from "react-icons/fa";
+import CommentsSection from "./components/comments_section";
 
 const retrievePostData = async (id: string | undefined) => {
   if (!id) return null;
@@ -59,6 +60,7 @@ const PostPage = () => {
       )}
 
       <BlocksRenderer content={data?.attributes.content} />
+      <CommentsSection />
     </div>
   );
 };
