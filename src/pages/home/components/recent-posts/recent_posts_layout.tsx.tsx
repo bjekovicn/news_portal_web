@@ -4,6 +4,7 @@ import { useQuery } from "react-query";
 import { RecentPostSchema } from "../../../../schemas/recent-post/recent-post";
 import RecentPostsCard from "./recent_posts_card";
 import SectionTitle from "../../../../common/components/section_title";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const retrievePostReports = async () => {
   const response = await axios.get(`posts-report/recent`);
@@ -26,6 +27,16 @@ const RecentPostsLayout = () => {
       {data.map((post) => {
         return <RecentPostsCard key={post.id} {...post} />;
       })}
+      <div className="flex flex-row gap-10 m-1 mt-6 h-10">
+        <div className="bg-gray-300  flex-1 justify-center items-center flex font-semibold text-gray-600 cursor-pointer">
+          <FaChevronLeft className="mr-2" />
+          Prethodna
+        </div>
+        <div className="bg-pink-600  flex-1 justify-center items-center flex font-semibold text-white cursor-pointer">
+          Sljedeća
+          <FaChevronRight className="ml-2" />
+        </div>
+      </div>
     </div>
   );
 };
