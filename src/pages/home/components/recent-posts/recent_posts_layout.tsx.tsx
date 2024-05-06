@@ -13,7 +13,7 @@ const retrievePostReports = async () => {
 };
 
 const RecentPostsLayout = () => {
-  const { data, error, isLoading } = useQuery(`postReports/recent}`, () =>
+  const { data, error, isLoading } = useQuery(`recent}`, () =>
     retrievePostReports()
   );
 
