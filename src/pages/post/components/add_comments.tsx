@@ -1,14 +1,23 @@
-import { SubmitHandler, useForm } from "react-hook-form";
+import axios from "../../../config/axios";
+
 import {
   PostCommentSchema,
   PostCommentSchemaType,
 } from "../../../schemas/post-comment-schema";
+import { useParams } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { SubmitHandler, useForm } from "react-hook-form";
 
-const AddComment = () => {
-  const onSubmit: SubmitHandler<PostCommentSchemaType> = (data) => {
-    console.log("DATA: ", data);
+const AddComment: React.FC<{ onSubmitCallback: () => void }> = ({
+  onSubmitCallback,
+}) => {
+  const { id } = useParams();
+
+  const onSubmit: SubmitHandler<PostCommentSchemaType> = async (data) => {
+    await axios.post(`comments-report/${id}/post-comment`, data);
+    onSubmitCallback();
   };
+
   const {
     register,
     handleSubmit,
