@@ -1,4 +1,4 @@
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import {
   PostCommentSchema,
   PostCommentSchemaType,
@@ -6,8 +6,8 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 
 const AddComment = () => {
-  const onSubmit = () => {
-    //
+  const onSubmit: SubmitHandler<PostCommentSchemaType> = (data) => {
+    console.log("DATA: ", data);
   };
   const {
     register,
@@ -34,7 +34,12 @@ const AddComment = () => {
           {...register("content")}
         />
         {errors.content && <span>{errors.content.message}</span>}
-
+        <p className="text-gray-500 text-sm">
+          Komentari koji sadrže uvrede ili izraze mržnje prema bilo kome neće
+          biti tolerisani. Molimo vas da izrazite svoje mišljenje na
+          konstruktivan i poštovan način. Hvala vam na razumijevanju i
+          poštovanju ovih pravila.
+        </p>
         <button
           type="submit"
           className="text-white px-4 bg-pink-600 py-2 mt-8 w-full"

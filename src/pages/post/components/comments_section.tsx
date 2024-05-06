@@ -48,7 +48,7 @@ const CommentsSection = () => {
       <Modal
         isOpen={isOpen}
         onRequestClose={closeModal}
-        className="absolute top-0 left-0 right-0 bottom-0 m-auto h-96 max-w-md mx-8 md:mx-auto content-center bg-white p-2"
+        className="absolute top-0 left-0 right-0 bottom-0 m-auto h-min  max-w-md mx-8 md:mx-auto content-center bg-white p-2"
         overlayClassName="fixed inset-0 bg-gray-500 bg-opacity-75"
       >
         <AddComment />
