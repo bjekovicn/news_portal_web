@@ -4,12 +4,12 @@ import PopularPostsCard from "./popular_posts.card";
 import SectionTitle from "../../../../common/components/section_title";
 
 import { useQuery } from "react-query";
-import { RecentPostSchema } from "../../../../schemas/recent-post/recent-post";
+import { RecentPostPayloadSchema } from "../../../../schemas/recent-post/recent-posts-payload";
 
 const retrievePostReports = async () => {
   const response = await axios.get(`posts-report/recent`);
 
-  const posts = RecentPostSchema.array().parse(response);
+  const posts = RecentPostPayloadSchema.parse(response);
   return posts;
 };
 
@@ -24,7 +24,7 @@ const PopularPostsLayout = () => {
   return (
     <>
       <SectionTitle title={"Popular Posts"} />
-      {data.map((post) => {
+      {data.posts.map((post) => {
         return <PopularPostsCard key={post.id} {...post} />;
       })}
     </>
