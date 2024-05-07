@@ -1,4 +1,4 @@
-import { FaFacebook, FaInstagram } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 import Logo from "./logo";
 
 function Footer() {
@@ -32,6 +32,7 @@ function Footer() {
       <div className="w-full py-4 gap-8 flex flex-row h-14 bg-gray-950 justify-center items-center">
         <FaInstagram className="text-white cursor-pointer" />
         <FaFacebook className="text-white cursor-pointer" />
+        <FaYoutube className="text-white cursor-pointer" />
       </div>
       <div className="w-full flex flex-row h-14 bg-gray-800 justify-center items-center ">
         <div className="text-white text-lg ">Coppyright@2023 I-News</div>

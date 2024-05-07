@@ -1,6 +1,6 @@
 const Trending = () => {
   return (
-    <div className="h-8 flex flex-row mx-2 mb-4">
+    <div className="h-8 flex flex-row mx-2 mb-1">
       <div className="bg-slate-800 px-6 flex items-center justify-center text-white text-sm  md:text-base lg:text-lg">
         Popularno
       </div>
