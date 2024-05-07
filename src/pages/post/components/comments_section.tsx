@@ -46,7 +46,11 @@ const CommentsSection = () => {
             Pošaljite komentar
           </button>
         </div>
-
+        {data?.length === 0 && (
+          <p className="flex pt-4 text-gray-400">
+            Ovaj članak trenutno nema komentare
+          </p>
+        )}
         {data?.map((comment) => {
           return <CommentCard {...comment} isReply={false} key={comment.id} />;
         })}
