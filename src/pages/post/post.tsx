@@ -43,8 +43,8 @@ const PostPage = () => {
         })}
       </div>
       <div className="flex flex-row mb-2 mt-1">
-        <div className="p-1 px-2 bg-gray-200 flex flex-row items-center shadow-md">
-          <FaRegClock className="mr-2" />
+        <div className="flex flex-row items-center bg-gray-200 px-3 py-1 text-xs md:text-sm font-semibold mr-2 mb-1 shadow-lg">
+          <FaRegClock className="mr-1" />
           {format(
             parseISO(data?.attributes.createdAt || ""),
             "dd.MM.yyyy HH:mm"
