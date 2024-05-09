@@ -2,7 +2,6 @@ import axios from "axios";
 import config from "./config";
 
 const API_URL = config.api;
-console.log("BASE URL: ", API_URL);
 
 const axiosInstance = axios.create({
   baseURL: API_URL,
