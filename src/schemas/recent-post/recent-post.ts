@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { CoverMediaSchema } from "../cover-media-schema";
-import { CategorySchema } from "../category-schema";
+import { ReducedCategorySchema } from "../category-schema";
 
 const RecentPostSchema = z.object({
   id: z.number(),
@@ -8,7 +8,7 @@ const RecentPostSchema = z.object({
   shortSummary: z.string().nullable(),
   createdAt: z.string(),
   coverMedia: CoverMediaSchema.nullable(),
-  categories: z.array(CategorySchema),
+  categories: z.array(ReducedCategorySchema),
   likes: z.number().nullable(),
   comments: z.number().nullable(),
 });

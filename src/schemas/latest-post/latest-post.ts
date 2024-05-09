@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { AuthorSchema } from "../author-schema";
-import { CategorySchema } from "../category-schema";
+import { ReducedCategorySchema } from "../category-schema";
 import { CoverMediaSchema } from "../cover-media-schema";
 
 const LatestPostSchema = z.object({
@@ -8,7 +8,7 @@ const LatestPostSchema = z.object({
   title: z.string(),
   createdAt: z.string(),
   author: AuthorSchema.nullable(),
-  categories: z.array(CategorySchema),
+  categories: z.array(ReducedCategorySchema),
   coverMedia: CoverMediaSchema.nullable(),
 });
 

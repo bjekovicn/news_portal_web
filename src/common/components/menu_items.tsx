@@ -1,9 +1,8 @@
 const MenuItems = () => {
   const links = [
     { href: "/", title: "HOME" },
+    { href: "/posts", title: "POSTS" },
     { href: "#", title: "ABOUT" },
-    { href: "#", title: "POSTS" },
-    { href: "#", title: "SERVICES" },
     { href: "#", title: "CONTACT" },
   ];
 
