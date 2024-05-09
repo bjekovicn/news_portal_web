@@ -10,7 +10,7 @@ const HomePage = () => {
     <div className="container flex flex-col">
       <Trending />
       <LatestPostsLayout />
-      <div className="flex flex-col mt-10">
+      <div className="flex flex-col mt-2">
         <div className="flex flex-col md:flex-row lg:flex-row  md:gap-20 m-2">
           <RecentPostsLayout paginationAvailable={false} />
           <div className="flex-1 flex-col">
