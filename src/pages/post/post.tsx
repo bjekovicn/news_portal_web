@@ -5,7 +5,7 @@ import CategoryPill from "../../common/components/category_pill";
 import { useQuery } from "react-query";
 import { FaRegClock } from "react-icons/fa";
 import { format, parseISO } from "date-fns";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 import { PostDetailsSchema } from "../../schemas/post-details-schema";
 import { BeatLoader } from "react-spinners";
@@ -19,8 +19,6 @@ const retrievePostData = async (id: string | undefined) => {
 const PostPage = () => {
   const { state } = useLocation();
   const { id } = state;
-  const { slug } = useParams();
-  console.log(`ID: ${id}  -  SLUG: ${slug} `);
 
   const { data, error, isLoading } = useQuery(`pd${id}`, () =>
     retrievePostData(id)
@@ -49,8 +47,8 @@ const PostPage = () => {
           );
         })}
       </div>
-      <div className="flex flex-row mb-2 mt-1">
-        <div className="flex flex-row items-center bg-gray-200 px-3 py-1 text-xs md:text-sm font-semibold mr-2 mb-1 shadow-lg">
+      <div className="flex flex-row mb-2 ">
+        <div className="flex flex-row items-center bg-[#24252f] text-gray-200 px-3 py-1 text-xs md:text-sm font-semibold mr-2 mb-1 shadow-lg">
           <FaRegClock className="mr-1" />
           {format(
             parseISO(data?.attributes.createdAt || ""),

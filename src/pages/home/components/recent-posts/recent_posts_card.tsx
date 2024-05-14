@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../../../assets/logo.png";
+import logo from "../../../../assets/logo-post.png";
 
 import { RecentPostType } from "../../../../schemas/recent-post/recent-post";
 import { format, parseISO } from "date-fns";
@@ -18,7 +18,7 @@ const RecentPostsCard: React.FC<RecentPostType> = (post) => {
       }
     >
       <div
-        className="w-36 h-36 min-w-36 min-h-36 md:min-w-48 md:min-h-48 lg:min-w-56 lg:min-h-56  shadow-sm"
+        className="w-36 h-36 min-w-36 min-h-36 md:min-w-48 md:min-h-48 lg:min-w-56 lg:min-h-56 shadow-sm"
         style={{
           backgroundImage: `url('${post.coverMedia?.url || logo}')`,
           backgroundSize: "cover",
