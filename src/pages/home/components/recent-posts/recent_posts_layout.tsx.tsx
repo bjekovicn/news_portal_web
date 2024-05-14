@@ -5,8 +5,8 @@ import PaginationButtons from "../../../../common/components/pagination_buttons"
 
 import { useState } from "react";
 import { useQuery } from "react-query";
-import { RecentPostPayloadSchema } from "../../../../schemas/recent-post/recent-posts-payload";
 import { BeatLoader } from "react-spinners";
+import { RecentPostPayloadSchema } from "../../../../schemas/recent-post/recent-posts-payload";
 
 const retrievePostReports = async (page: number) => {
   const response = await axios.get(`posts-report/recent?page=${page}`);
@@ -28,26 +28,27 @@ const RecentPostsLayout: React.FC<{ paginationAvailable: boolean }> = ({
   return (
     <div className="flex flex-col w-full md:w-3/5 lg:w-3/5">
       <SectionTitle title={"Recent Posts"} />
-      <div className="flex justify-center">
-        {isLoading || error || !data ? (
-          <BeatLoader className="my-6" />
-        ) : (
-          <>
-            {data.posts.map((post) => {
-              return <RecentPostsCard key={post.id} {...post} />;
-            })}
 
-            {paginationAvailable && (
-              <PaginationButtons
-                onNextHandler={() => setPage((prev) => prev + 1)}
-                onPreviousHandler={() => setPage((prev) => prev - 1)}
-                currentPage={page}
-                totalPages={data.pagination.pageCount}
-              ></PaginationButtons>
-            )}
-          </>
-        )}
-      </div>
+      {isLoading || error || !data ? (
+        <div className="flex justify-center">
+          <BeatLoader className="my-6" />
+        </div>
+      ) : (
+        <>
+          {data.posts.map((post) => {
+            return <RecentPostsCard key={post.id} {...post} />;
+          })}
+
+          {paginationAvailable && (
+            <PaginationButtons
+              onNextHandler={() => setPage((prev) => prev + 1)}
+              onPreviousHandler={() => setPage((prev) => prev - 1)}
+              currentPage={page}
+              totalPages={data.pagination.pageCount}
+            />
+          )}
+        </>
+      )}
     </div>
   );
 };

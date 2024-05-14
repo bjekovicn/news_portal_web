@@ -22,15 +22,16 @@ const PopularPostsLayout = () => {
   return (
     <>
       <SectionTitle title={"Popular Posts"} />
-      <div className="flex items-center justify-center">
-        {isLoading || error || !data ? (
+
+      {isLoading || error || !data ? (
+        <div className="flex items-center justify-center">
           <BeatLoader className="my-6" />
-        ) : (
-          data.posts.map((post) => {
-            return <PopularPostsCard key={post.id} {...post} />;
-          })
-        )}
-      </div>
+        </div>
+      ) : (
+        data.posts.map((post) => {
+          return <PopularPostsCard key={post.id} {...post} />;
+        })
+      )}
     </>
   );
 };
