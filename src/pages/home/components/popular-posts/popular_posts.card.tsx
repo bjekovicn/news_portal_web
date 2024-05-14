@@ -1,11 +1,11 @@
 import React from "react";
 import logo from "../../../../assets/logo.png";
-
-import { RecentPostType } from "../../../../schemas/recent-post/recent-post";
-import { format, parseISO } from "date-fns";
-import { FaClock, FaComment, FaHeart } from "react-icons/fa";
 import CategoryPill from "../../../../common/components/category_pill";
+
+import { format, parseISO } from "date-fns";
 import { useNavigate } from "react-router-dom";
+import { FaClock, FaComment, FaHeart } from "react-icons/fa";
+import { RecentPostType } from "../../../../schemas/recent-post/recent-post";
 
 const PopularPostsCard: React.FC<RecentPostType> = (post) => {
   const navigate = useNavigate();
@@ -13,7 +13,9 @@ const PopularPostsCard: React.FC<RecentPostType> = (post) => {
   return (
     <div
       className="flex flex-row m-1 h-36 cursor-pointer"
-      onClick={() => navigate(`/posts/${post.id}`)}
+      onClick={() =>
+        navigate(`/posts/${post.slug}`, { state: { id: post.id } })
+      }
     >
       <div
         className="w-28 h-28 min-w-28 min-h-28 md:min-w-32 md:min-h-32 lg:min-w-36 lg:min-h-36  shadow-sm"

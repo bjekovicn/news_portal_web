@@ -1,12 +1,13 @@
-import { useQuery } from "react-query";
-import { useParams } from "react-router-dom";
-import { PostDetailsSchema } from "../../schemas/post-details-schema";
-import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 import axios from "../../config/axios";
-import CategoryPill from "../../common/components/category_pill";
-import { format, parseISO } from "date-fns";
-import { FaRegClock } from "react-icons/fa";
 import CommentsSection from "./components/comments_section";
+import CategoryPill from "../../common/components/category_pill";
+
+import { useQuery } from "react-query";
+import { FaRegClock } from "react-icons/fa";
+import { format, parseISO } from "date-fns";
+import { useLocation, useParams } from "react-router-dom";
+import { BlocksRenderer } from "@strapi/blocks-react-renderer";
+import { PostDetailsSchema } from "../../schemas/post-details-schema";
 
 const retrievePostData = async (id: string | undefined) => {
   if (!id) return null;
@@ -15,7 +16,11 @@ const retrievePostData = async (id: string | undefined) => {
 };
 
 const PostPage = () => {
-  const { id } = useParams();
+  const { state } = useLocation();
+  const { id } = state;
+  const { slug } = useParams();
+  console.log(`ID: ${id}  -  SLUG: ${slug} `);
+
   const { data, error, isLoading } = useQuery(`pd${id}`, () =>
     retrievePostData(id)
   );
