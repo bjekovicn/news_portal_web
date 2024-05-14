@@ -24,7 +24,7 @@ function Footer() {
               {t("subscribe")}
             </button>
           </div>
-          <p className="text-white mt-2">{t("subscribeWarning")}</p>
+          <p className="text-white mt-2 text-center">{t("subscribeWarning")}</p>
         </div>
       </div>
       <div className="w-full py-4 gap-8 flex flex-row h-14 bg-gray-950 justify-center items-center">

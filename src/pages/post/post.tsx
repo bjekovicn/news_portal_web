@@ -24,9 +24,9 @@ const PostPage = () => {
     retrievePostData(id)
   );
 
-  if (isLoading || error)
+  if (isLoading || error) {
     return <BeatLoader className="flex flex-grow my-96" />;
-
+  }
   const coverAttributes = data?.attributes.coverMedia?.data?.attributes;
   const coverFormats = coverAttributes?.formats;
   const url = coverAttributes?.url;
