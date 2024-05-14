@@ -1,12 +1,11 @@
 import MenuItems from "./menu_items";
-import Search from "./search";
 
 const MenuBar = () => {
   return (
     <>
-      <div className="flex flex-row justify-between w-full p-2">
+      <div className="flex flex-row justify-between w-full pb-1">
         <MenuItems></MenuItems>
-        <Search></Search>
+        {/* <Search></Search> */}
       </div>
     </>
   );

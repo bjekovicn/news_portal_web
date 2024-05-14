@@ -6,14 +6,12 @@ import RecentPostsLayout from "../home/components/recent-posts/recent_posts_layo
 const PostsPage = () => {
   return (
     <div className="container flex flex-col">
-      <div className="flex flex-col mt-10">
-        <div className="flex flex-col md:flex-row lg:flex-row  md:gap-20 m-2">
-          <RecentPostsLayout paginationAvailable={true} />
-          <div className="flex-1 flex-col">
-            <PopularPostsLayout />
-            <CalendarSection />
-            <CategoriesSection />
-          </div>
+      <div className="flex flex-col md:flex-row lg:flex-row md:gap-16 m-2">
+        <RecentPostsLayout paginationAvailable={true} />
+        <div className="flex-1 flex-col">
+          <PopularPostsLayout />
+          <CalendarSection />
+          <CategoriesSection />
         </div>
       </div>
     </div>

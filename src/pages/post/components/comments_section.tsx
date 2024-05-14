@@ -9,6 +9,7 @@ import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import { CommentSchema } from "../../../schemas/comment-schema";
 import { Bounce, ToastContainer, toast } from "react-toastify";
+import { BeatLoader } from "react-spinners";
 
 const customProgressStyle = {
   background: "#d22477",
@@ -32,7 +33,7 @@ const CommentsSection = () => {
     retrieveCommentsData(id)
   );
 
-  if (isLoading || error) return <div />;
+  if (isLoading || error) return <BeatLoader />;
 
   return (
     <>

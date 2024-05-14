@@ -3,6 +3,7 @@ import axios from "../../../../config/axios";
 
 import { useQuery } from "react-query";
 import { LatestPostSchema } from "../../../../schemas/latest-post/latest-post";
+import { BeatLoader } from "react-spinners";
 
 const retrievePostReports = async () => {
   const response = await axios.get(`posts-report`);
@@ -16,8 +17,12 @@ const LatestPostsLayout = () => {
     retrievePostReports()
   );
 
-  if (isLoading) return <div>Fetching posts...</div>;
-  if (error || !data) return <div>An error occurred</div>;
+  if (isLoading || error || !data)
+    return (
+      <div className="flex justify-center my-10">
+        <BeatLoader />
+      </div>
+    );
 
   return (
     <div className="flex flex-col md:flex-row p-1">

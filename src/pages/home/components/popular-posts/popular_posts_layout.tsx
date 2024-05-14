@@ -5,6 +5,7 @@ import SectionTitle from "../../../../common/components/section_title";
 
 import { useQuery } from "react-query";
 import { RecentPostPayloadSchema } from "../../../../schemas/recent-post/recent-posts-payload";
+import { BeatLoader } from "react-spinners";
 
 const retrievePostReports = async () => {
   const response = await axios.get(`posts-report/recent`);
@@ -18,15 +19,19 @@ const PopularPostsLayout = () => {
     retrievePostReports()
   );
 
-  if (isLoading) return <div>Fetching posts...</div>;
-  if (error || !data) return <div>An error occurred</div>;
-
   return (
     <>
       <SectionTitle title={"Popular Posts"} />
-      {data.posts.map((post) => {
-        return <PopularPostsCard key={post.id} {...post} />;
-      })}
+
+      {isLoading || error || !data ? (
+        <div className="flex items-center justify-center">
+          <BeatLoader className="my-6" />
+        </div>
+      ) : (
+        data.posts.map((post) => {
+          return <PopularPostsCard key={post.id} {...post} />;
+        })
+      )}
     </>
   );
 };
