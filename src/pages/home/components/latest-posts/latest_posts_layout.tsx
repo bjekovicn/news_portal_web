@@ -25,7 +25,7 @@ const LatestPostsLayout = () => {
     );
 
   return (
-    <div className="flex flex-col md:flex-row p-1">
+    <div className="flex flex-col md:flex-row p-1 mt-2">
       <div className="w-full md:w-1/2 flex flex-col">
         {data.length > 0 && <LatestPostsCard key={data[0].id} {...data[0]} />}
       </div>

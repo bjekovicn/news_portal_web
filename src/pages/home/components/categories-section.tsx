@@ -5,6 +5,7 @@ import CategoryPill from "../../../common/components/category_pill";
 import { useQuery } from "react-query";
 import { CategorySchema } from "../../../schemas/category-schema";
 import { BeatLoader } from "react-spinners";
+import { useTranslation } from "react-i18next";
 
 const retrieveCategories = async () => {
   const response = await axios.get(`categories`);
@@ -17,10 +18,11 @@ const CategoriesSection = () => {
   const { data, error, isLoading } = useQuery(`categories}`, () =>
     retrieveCategories()
   );
+  const { t } = useTranslation();
 
   return (
     <>
-      <SectionTitle title={"Categories"} />
+      <SectionTitle title={t("categories")} />
       <div className="flex flex-wrap gap-1 items-center justify-center">
         {isLoading || error || !data ? (
           <BeatLoader className="mt-4" />
