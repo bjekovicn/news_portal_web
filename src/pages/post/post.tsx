@@ -8,6 +8,7 @@ import { format, parseISO } from "date-fns";
 import { useLocation, useParams } from "react-router-dom";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 import { PostDetailsSchema } from "../../schemas/post-details-schema";
+import { BeatLoader } from "react-spinners";
 
 const retrievePostData = async (id: string | undefined) => {
   if (!id) return null;
@@ -25,8 +26,8 @@ const PostPage = () => {
     retrievePostData(id)
   );
 
-  if (isLoading) return <div>Fetching posts...</div>;
-  if (error) return <div>An error occurred</div>;
+  if (isLoading || error) return <BeatLoader />;
+
   const coverAttributes = data?.attributes.coverMedia?.data?.attributes;
   const coverFormats = coverAttributes?.formats;
   const url = coverAttributes?.url;

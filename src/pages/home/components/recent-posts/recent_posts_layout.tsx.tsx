@@ -6,6 +6,7 @@ import PaginationButtons from "../../../../common/components/pagination_buttons"
 import { useState } from "react";
 import { useQuery } from "react-query";
 import { RecentPostPayloadSchema } from "../../../../schemas/recent-post/recent-posts-payload";
+import { BeatLoader } from "react-spinners";
 
 const retrievePostReports = async (page: number) => {
   const response = await axios.get(`posts-report/recent?page=${page}`);
@@ -24,24 +25,29 @@ const RecentPostsLayout: React.FC<{ paginationAvailable: boolean }> = ({
     { keepPreviousData: true }
   );
 
-  if (isLoading) return <div />;
-  if (error || !data) return <div>An error occurred</div>;
-
   return (
     <div className="flex flex-col w-full md:w-3/5 lg:w-3/5">
       <SectionTitle title={"Recent Posts"} />
-      {data.posts.map((post) => {
-        return <RecentPostsCard key={post.id} {...post} />;
-      })}
+      <div className="flex justify-center">
+        {isLoading || error || !data ? (
+          <BeatLoader className="my-6" />
+        ) : (
+          <>
+            {data.posts.map((post) => {
+              return <RecentPostsCard key={post.id} {...post} />;
+            })}
 
-      {paginationAvailable && (
-        <PaginationButtons
-          onNextHandler={() => setPage((prev) => prev + 1)}
-          onPreviousHandler={() => setPage((prev) => prev - 1)}
-          currentPage={page}
-          totalPages={data.pagination.pageCount}
-        ></PaginationButtons>
-      )}
+            {paginationAvailable && (
+              <PaginationButtons
+                onNextHandler={() => setPage((prev) => prev + 1)}
+                onPreviousHandler={() => setPage((prev) => prev - 1)}
+                currentPage={page}
+                totalPages={data.pagination.pageCount}
+              ></PaginationButtons>
+            )}
+          </>
+        )}
+      </div>
     </div>
   );
 };
