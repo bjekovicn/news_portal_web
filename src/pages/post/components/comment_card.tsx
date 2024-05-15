@@ -1,6 +1,7 @@
 import { format, parseISO } from "date-fns";
 import { FaRegClock, FaUser } from "react-icons/fa";
 import { CommentType } from "../../../schemas/comment-schema";
+import { useTranslation } from "react-i18next";
 
 interface CommentCardProps extends CommentType {
   isReply: boolean;
@@ -14,6 +15,7 @@ const CommentCard: React.FC<CommentCardProps> = ({
   replies,
 }) => {
   const borderStyle = isReply ? "" : "border-b-2";
+  const { t } = useTranslation();
 
   return (
     <div className={`flex mb-4 border-gray-100 border-solid ${borderStyle}`}>
@@ -28,7 +30,7 @@ const CommentCard: React.FC<CommentCardProps> = ({
         <p className="text-gray-600">{content}</p>
         {!isReply && (
           <div className="items-end flex mb-2 cursor-pointer">
-            <p className="text-gray-400 uppercase font-base"> Odgovorite</p>
+            <p className="text-gray-400 uppercase font-base"> {t("reply")}</p>
           </div>
         )}
         {replies?.map((reply) => (

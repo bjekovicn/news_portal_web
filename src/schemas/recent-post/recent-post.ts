@@ -11,6 +11,7 @@ const RecentPostSchema = z.object({
   categories: z.array(ReducedCategorySchema),
   likes: z.number().nullable(),
   comments: z.number().nullable(),
+  slug: z.string(),
 });
 
 export type RecentPostType = z.infer<typeof RecentPostSchema>;

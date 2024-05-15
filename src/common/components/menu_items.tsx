@@ -1,9 +1,12 @@
+import { useTranslation } from "react-i18next";
+
 const MenuItems = () => {
+  const { t } = useTranslation();
   const links = [
-    { href: "/", title: "HOME" },
-    { href: "/posts", title: "POSTS" },
-    { href: "#", title: "ABOUT" },
-    { href: "#", title: "CONTACT" },
+    { href: "/", title: t("homePage") },
+    { href: "/posts", title: t("postsPage") },
+    { href: "#", title: t("aboutPage") },
+    { href: "#", title: t("contactPage") },
   ];
 
   return (

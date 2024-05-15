@@ -3,6 +3,7 @@ import axios from "../../../../config/axios";
 
 import { useQuery } from "react-query";
 import { LatestPostSchema } from "../../../../schemas/latest-post/latest-post";
+import { BeatLoader } from "react-spinners";
 
 const retrievePostReports = async () => {
   const response = await axios.get(`posts-report`);
@@ -16,11 +17,15 @@ const LatestPostsLayout = () => {
     retrievePostReports()
   );
 
-  if (isLoading) return <div>Fetching posts...</div>;
-  if (error || !data) return <div>An error occurred</div>;
+  if (isLoading || error || !data)
+    return (
+      <div className="flex justify-center my-10">
+        <BeatLoader />
+      </div>
+    );
 
   return (
-    <div className="flex flex-col md:flex-row p-1">
+    <div className="flex flex-col md:flex-row p-1 mt-2">
       <div className="w-full md:w-1/2 flex flex-col">
         {data.length > 0 && <LatestPostsCard key={data[0].id} {...data[0]} />}
       </div>

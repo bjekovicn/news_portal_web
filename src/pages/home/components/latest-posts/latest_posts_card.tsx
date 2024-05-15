@@ -17,7 +17,7 @@ const LatestPostsCard: React.FC<LatestPostType> = (post) => {
         backgroundRepeat: "no-repeat",
       }}
       onClick={() => {
-        navigate(`/posts/${post.id}`);
+        navigate(`/posts/${post.slug}`, { state: { id: post.id } });
       }}
     >
       <div className="p-4">

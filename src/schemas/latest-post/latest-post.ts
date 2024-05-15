@@ -10,6 +10,7 @@ const LatestPostSchema = z.object({
   author: AuthorSchema.nullable(),
   categories: z.array(ReducedCategorySchema),
   coverMedia: CoverMediaSchema.nullable(),
+  slug: z.string(),
 });
 
 export type LatestPostType = z.infer<typeof LatestPostSchema>;
