@@ -17,14 +17,15 @@ function Header() {
       <div className="w-full h-28 mt-2 md:h-36 lg:h-44 border-b-gray-300 border-b flex justify-center">
         <div className="container flex flex-col items-center justify-between flex-grow">
           <div className="flex flex-row flex-grow justify-between w-full items-center py-1 px-2 gap-10">
-            <div className="h-full w-40 flex justify-center items-center text-xl font-semibold text-white">
-              <img className="bg-white" src={logo} alt="Logo" />
+            <div className="h-full w-80 flex justify-center items-center text-xl font-semibold text-white">
+              <img className="" src={logo} alt="Logo" />
             </div>
             <div className="h-full w-96  text-xs md:text-base text-center font-semibold flex justify-center items-center">
               Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum"
               by Cicero are also reproduced in their exact original form.
             </div>
           </div>
+
           <MenuBar />
         </div>
       </div>
