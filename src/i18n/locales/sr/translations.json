@@ -1,0 +1,25 @@
+{
+  "homePage":"Početna",
+  "aboutPage":"O nama",
+  "postsPage":"Objave",
+  "contactPage":"Kontakt",
+  "recentPosts":"Zadnje objave",
+  "popularPosts":"Popularne objave",
+  "calendar":"Kalendar",
+  "categories":"Kategorije",
+  "footerQuote":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed.",
+  "enterEmail":"Unesite Vašu mejl adresu",
+  "subscribe":"Pretplati se",
+  "subscribeWarning":"Pretplatom se slažete sa našom politikom privatnosti!",
+  "comments":"Komentari",
+  "sendComment":"Pošaljite komentar",
+  "noCommentsOnPost":"Ovaj članak trenutno nema komentare",
+  "reply":"Odgovori",
+  "successfullySent":"Uspješno poslato",
+  "addComment":{
+    "name":"Vaše ime",
+    "writeComment":"Napišite vaš komentar ovdje",
+    "commentWarning":"  Komentari koji sadrže uvrede ili izraze mržnje prema bilo kome nećebiti tolerisani. Molimo vas da izrazite svoje mišljenje nakonstruktivan i poštovan način. Hvala vam na razumijevanju i poštovanju ovih pravila.",
+    "sendComment":"Pošaljite komentar"
+  }
+}

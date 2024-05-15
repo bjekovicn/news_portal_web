@@ -6,6 +6,7 @@ import SectionTitle from "../../../../common/components/section_title";
 import { useQuery } from "react-query";
 import { RecentPostPayloadSchema } from "../../../../schemas/recent-post/recent-posts-payload";
 import { BeatLoader } from "react-spinners";
+import { useTranslation } from "react-i18next";
 
 const retrievePostReports = async () => {
   const response = await axios.get(`posts-report/recent`);
@@ -18,10 +19,11 @@ const PopularPostsLayout = () => {
   const { data, error, isLoading } = useQuery(`postReports/recent}`, () =>
     retrievePostReports()
   );
+  const { t } = useTranslation();
 
   return (
     <>
-      <SectionTitle title={"Popular Posts"} />
+      <SectionTitle title={t("popularPosts")} />
 
       {isLoading || error || !data ? (
         <div className="flex items-center justify-center">

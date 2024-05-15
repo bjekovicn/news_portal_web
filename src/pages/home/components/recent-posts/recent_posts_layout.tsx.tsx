@@ -7,6 +7,7 @@ import { useState } from "react";
 import { useQuery } from "react-query";
 import { BeatLoader } from "react-spinners";
 import { RecentPostPayloadSchema } from "../../../../schemas/recent-post/recent-posts-payload";
+import { useTranslation } from "react-i18next";
 
 const retrievePostReports = async (page: number) => {
   const response = await axios.get(`posts-report/recent?page=${page}`);
@@ -19,6 +20,7 @@ const RecentPostsLayout: React.FC<{ paginationAvailable: boolean }> = ({
   paginationAvailable,
 }) => {
   const [page, setPage] = useState(1);
+  const { t } = useTranslation();
   const { data, error, isLoading } = useQuery(
     ["recent", page],
     () => retrievePostReports(page),
@@ -27,7 +29,7 @@ const RecentPostsLayout: React.FC<{ paginationAvailable: boolean }> = ({
 
   return (
     <div className="flex flex-col w-full md:w-3/5 lg:w-3/5">
-      <SectionTitle title={"Recent Posts"} />
+      <SectionTitle title={t("recentPosts")} />
 
       {isLoading || error || !data ? (
         <div className="flex justify-center">

@@ -6,10 +6,11 @@ import "react-toastify/dist/ReactToastify.css";
 
 import { useState } from "react";
 import { useQuery } from "react-query";
-import { useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { CommentSchema } from "../../../schemas/comment-schema";
 import { Bounce, ToastContainer, toast } from "react-toastify";
 import { BeatLoader } from "react-spinners";
+import { useTranslation } from "react-i18next";
 
 const customProgressStyle = {
   background: "#d22477",
@@ -28,10 +29,12 @@ const CommentsSection = () => {
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
 
-  const { id } = useParams();
+  const { state } = useLocation();
+  const { id } = state;
   const { data, error, isLoading } = useQuery(`comments${id}`, () =>
     retrieveCommentsData(id)
   );
+  const { t } = useTranslation();
 
   if (isLoading || error) return <BeatLoader />;
 
@@ -39,18 +42,16 @@ const CommentsSection = () => {
     <>
       <div className="flex flex-col mt-24">
         <div className="flex justify-between items-center mb-6 border-b-2 border-gray-100 ">
-          <p className="text-2xl font-semibold">Komentari</p>
+          <p className="text-2xl font-semibold"> {t("comments")}</p>
           <button
             className="text-white px-4 bg-pink-600 py-2 mt-4 mb-2"
             onClick={openModal}
           >
-            Pošaljite komentar
+            {t("sendComment")}
           </button>
         </div>
         {data?.length === 0 && (
-          <p className="flex pt-4 text-gray-400">
-            Ovaj članak trenutno nema komentare
-          </p>
+          <p className="flex pt-4 text-gray-400">{t("noCommentsOnPost")}</p>
         )}
         {data?.map((comment) => {
           return <CommentCard {...comment} isReply={false} key={comment.id} />;
@@ -66,7 +67,7 @@ const CommentsSection = () => {
           <AddComment
             onSubmitCallback={() => {
               closeModal();
-              toast("Uspješno poslato!", {
+              toast(t("successfullySent"), {
                 position: "bottom-right",
                 hideProgressBar: false,
                 closeOnClick: true,
