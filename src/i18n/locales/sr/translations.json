@@ -15,5 +15,11 @@
   "sendComment":"Pošaljite komentar",
   "noCommentsOnPost":"Ovaj članak trenutno nema komentare",
   "reply":"Odgovori",
-  "successfullySent":"Uspješno poslato"
+  "successfullySent":"Uspješno poslato",
+  "addComment":{
+    "name":"Vaše ime",
+    "writeComment":"Napišite vaš komentar ovdje",
+    "commentWarning":"  Komentari koji sadrže uvrede ili izraze mržnje prema bilo kome nećebiti tolerisani. Molimo vas da izrazite svoje mišljenje nakonstruktivan i poštovan način. Hvala vam na razumijevanju i poštovanju ovih pravila.",
+    "sendComment":"Pošaljite komentar"
+  }
 }
