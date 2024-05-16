@@ -4,18 +4,16 @@ import {
   PostCommentSchema,
   PostCommentSchemaType,
 } from "../../../schemas/post-comment-schema";
-import { useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { useTranslation } from "react-i18next";
 
-const AddComment: React.FC<{ onSubmitCallback: () => void }> = ({
-  onSubmitCallback,
-}) => {
-  const { id } = useParams();
-
+const AddComment: React.FC<{
+  onSubmitCallback: () => void;
+  postId: number;
+}> = ({ onSubmitCallback, postId }) => {
   const onSubmit: SubmitHandler<PostCommentSchemaType> = async (data) => {
-    await axios.post(`comments-report/${id}/post-comment`, data);
+    await axios.post(`comments-report/${postId}/post-comment`, data);
     onSubmitCallback();
   };
 

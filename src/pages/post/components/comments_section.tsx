@@ -1,20 +1,14 @@
-import Modal from "react-modal";
-import AddComment from "./add_comments";
 import CommentCard from "./comment_card";
 import axios from "../../../config/axios";
+import AddCommentModal from "./add_comment_modal";
 import "react-toastify/dist/ReactToastify.css";
 
 import { useState } from "react";
 import { useQuery } from "react-query";
 import { useLocation } from "react-router-dom";
-import { CommentSchema } from "../../../schemas/comment-schema";
-import { Bounce, ToastContainer, toast } from "react-toastify";
 import { BeatLoader } from "react-spinners";
 import { useTranslation } from "react-i18next";
-
-const customProgressStyle = {
-  background: "#d22477",
-};
+import { CommentSchema } from "../../../schemas/comment-schema";
 
 const retrieveCommentsData = async (id: string | undefined) => {
   if (!id) return [];
@@ -25,10 +19,6 @@ const retrieveCommentsData = async (id: string | undefined) => {
 
 const CommentsSection = () => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const openModal = () => setIsOpen(true);
-  const closeModal = () => setIsOpen(false);
-
   const { state } = useLocation();
   const { id } = state;
   const { data, error, isLoading } = useQuery(`comments${id}`, () =>
@@ -45,7 +35,7 @@ const CommentsSection = () => {
           <p className="text-2xl font-semibold"> {t("comments")}</p>
           <button
             className="text-white px-4 bg-pink-600 py-2 mt-4 mb-2"
-            onClick={openModal}
+            onClick={() => setIsOpen(true)}
           >
             {t("sendComment")}
           </button>
@@ -54,47 +44,22 @@ const CommentsSection = () => {
           <p className="flex pt-4 text-gray-400">{t("noCommentsOnPost")}</p>
         )}
         {data?.map((comment) => {
-          return <CommentCard {...comment} isReply={false} key={comment.id} />;
+          return (
+            <CommentCard
+              {...comment}
+              isReply={false}
+              postId={id}
+              key={comment.id}
+            />
+          );
         })}
 
-        <Modal
-          ariaHideApp={false}
+        <AddCommentModal
+          postId={id}
           isOpen={isOpen}
-          onRequestClose={closeModal}
-          className="absolute top-0 left-0 right-0 bottom-0 m-auto h-min  max-w-md mx-8 md:mx-auto content-center bg-white p-2"
-          overlayClassName="fixed inset-0 bg-gray-500 bg-opacity-75"
-        >
-          <AddComment
-            onSubmitCallback={() => {
-              closeModal();
-              toast(t("successfullySent"), {
-                position: "bottom-right",
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-                transition: Bounce,
-
-                progressStyle: customProgressStyle,
-              });
-            }}
-          />
-        </Modal>
+          onClose={() => setIsOpen(false)}
+        />
       </div>
-      <ToastContainer
-        position="bottom-right"
-        autoClose={2200}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
     </>
   );
 };
