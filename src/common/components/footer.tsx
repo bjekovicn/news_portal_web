@@ -1,5 +1,5 @@
 import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
-import Logo from "./logo";
+import logo from "../../assets/logo-footer.png";
 import { useTranslation } from "react-i18next";
 
 function Footer() {
@@ -9,7 +9,7 @@ function Footer() {
     <div className="flex w-full mt-10 h-96 flex-col">
       <div className="w-full flex flex-col md:flex-row h-full bg-gray-950 justify-center items-center gap-2">
         <div className="flex flex-1 justify-center items-center">
-          <Logo />
+          <img className="bg-white w-64" src={logo} alt="Logo" />
         </div>
         <p className="text-white text-xs md:text-sm lg:text-lg text-center flex-1 items-center justify-center mx-8">
           {t("footerQuote")}
