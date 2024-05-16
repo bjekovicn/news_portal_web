@@ -17,13 +17,13 @@ const MenuItems = () => {
       className="hidden md:flex justify-between items-center w-full md:w-auto md:order-1"
       id="mobile-menu-3"
     >
-      <ul className="flex-col md:flex-row flex md:space-x-2 mt-4 ml-2 md:mt-0 md:text-sm ">
+      <ul className="flex-col md:flex-row flex  mt-4 ml-2 md:mt-0 md:text-sm ">
         {links.map((link) => (
           <li key={link.href}>
             <a
               href={link.href}
               className={
-                "block hover:text-white hover:bg-[#24252f] px-2 py-2 rounded-sm "
+                "block hover:text-white hover:bg-[#24252f] px-4 py-2  "
               }
               aria-current={link.title === "HOME" ? "page" : undefined}
               style={{

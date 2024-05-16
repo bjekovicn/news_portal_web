@@ -1,6 +1,6 @@
 import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 import MenuBar from "./menu_bar";
-import logo from "../../assets/logo-header.png";
+import logo from "../../assets/logo-header-inv.png";
 
 function Header() {
   return (
