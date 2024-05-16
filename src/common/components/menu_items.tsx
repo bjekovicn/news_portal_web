@@ -11,7 +11,6 @@ const MenuItems = () => {
     { href: "/contact", title: t("contactPage") },
   ];
 
-  console.log(`${location.pathname}`);
   return (
     <div
       className="hidden md:flex justify-between items-center w-full md:w-auto md:order-1"

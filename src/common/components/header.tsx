@@ -1,4 +1,4 @@
-import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaEnvelope, FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 import MenuBar from "./menu_bar";
 import logo from "../../assets/logo-header-inv.png";
 
@@ -6,12 +6,13 @@ function Header() {
   return (
     <>
       <div className="h-8 bg-[#24252f] w-full justify-center flex">
-        <div className="container lg:px-20 h-8  flex flex-row items-center gap-3 px-4">
+        <div className="container lg:px-20 h-8 flex flex-row items-center gap-3 px-4">
+          <FaYoutube className="text-white cursor-pointer" />
           <FaInstagram className="text-white cursor-pointer" />
           <FaFacebook className="text-white cursor-pointer" />
-          <FaYoutube className="text-white cursor-pointer" />
-          <div className="w-px h-4 bg-gray-400"></div>
-          <p className="text-white cursor-pointer">Contact</p>
+          <div className="w-px h-4 bg-gray-400 mx-1"></div>
+          <FaEnvelope className="text-white cursor-pointer" />
+          <p className="text-white">redakcija@korakpokorak.ba</p>
         </div>
       </div>
       <div className="w-full h-28 mt-2 md:h-36 lg:h-44 border-b-gray-300 border-b flex justify-center">
