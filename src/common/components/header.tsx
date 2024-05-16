@@ -12,7 +12,9 @@ function Header() {
           <FaFacebook className="text-white cursor-pointer" />
           <div className="w-px h-4 bg-gray-400 mx-1"></div>
           <FaEnvelope className="text-white cursor-pointer" />
-          <p className="text-white">redakcija@korakpokorak.ba</p>
+          <p className="text-blue-100 sm:text-xs md:text-base">
+            redakcija@korakpokorak.ba
+          </p>
         </div>
       </div>
       <div className="w-full h-28 mt-2 md:h-36 lg:h-44 border-b-gray-300 border-b flex justify-center">
