@@ -6,7 +6,7 @@ import RecentPostsLayout from "./components/recent-posts/recent_posts_layout.tsx
 
 const HomePage = () => {
   return (
-    <div className="container flex flex-col">
+    <div className="container lg:px-20 flex flex-col">
       {/* <Trending /> */}
       <LatestPostsLayout />
       <div className="flex flex-col mt-2">

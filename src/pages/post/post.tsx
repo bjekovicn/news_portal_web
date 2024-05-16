@@ -32,7 +32,7 @@ const PostPage = () => {
   const url = coverAttributes?.url;
 
   return (
-    <div className="container flex flex-col p-4">
+    <div className="container lg:px-20 flex flex-col p-4">
       <p className="text-2xl font-bold mb-4 mt-6 text-start">
         {data?.attributes.title}
       </p>
