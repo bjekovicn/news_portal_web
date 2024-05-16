@@ -10,8 +10,8 @@ import PostsPage from "./pages/posts/posts";
 function App() {
   return (
     <>
-      <Header />
       <BrowserRouter>
+        <Header />
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
           <Route path="/posts" element={<PostsPage />}></Route>
