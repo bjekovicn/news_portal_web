@@ -15,6 +15,7 @@ const AddComment: React.FC<{
   const onSubmit: SubmitHandler<PostCommentSchemaType> = async (data) => {
     await axios.post(`comments-report/${postId}/post-comment`, data);
     onSubmitCallback();
+    //
   };
 
   const {
