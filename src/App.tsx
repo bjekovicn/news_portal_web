@@ -1,10 +1,10 @@
+import { Route, BrowserRouter, Routes } from "react-router-dom";
 import "./App.css";
+
 import Footer from "./common/components/footer";
 import Header from "./common/components/header";
-
 import HomePage from "./pages/home/home";
 import PostPage from "./pages/post/post";
-import { Route, BrowserRouter, Routes } from "react-router-dom";
 import PostsPage from "./pages/posts/posts";
 
 function App() {
