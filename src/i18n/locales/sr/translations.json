@@ -2,7 +2,7 @@
   "homePage":"Početna",
   "aboutPage":"O nama",
   "postsPage":"Objave",
-  "contactPage":"Kontakt",
+  "contactPage":"Pišite nam",
   "recentPosts":"Zadnje objave",
   "popularPosts":"Popularne objave",
   "calendar":"Kalendar",
@@ -19,7 +19,7 @@
   "addComment":{
     "name":"Vaše ime",
     "writeComment":"Napišite vaš komentar ovdje",
-    "commentWarning":"  Komentari koji sadrže uvrede ili izraze mržnje prema bilo kome nećebiti tolerisani. Molimo vas da izrazite svoje mišljenje nakonstruktivan i poštovan način. Hvala vam na razumijevanju i poštovanju ovih pravila.",
+    "commentWarning":"  Komentari koji sadrže uvrede ili izraze mržnje prema bilo kome neće biti tolerisani. Molimo vas da izrazite svoje mišljenje na konstruktivan i poštovan način. Hvala Vam na razumijevanju i poštovanju ovih pravila.",
     "sendComment":"Pošaljite komentar"
   }
 }

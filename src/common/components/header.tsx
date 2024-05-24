@@ -12,7 +12,7 @@ function Header() {
           <FaFacebook className="text-white cursor-pointer" />
           <div className="w-px h-4 bg-gray-400 mx-1"></div>
           <FaEnvelope className="text-white cursor-pointer" />
-          <p className="text-blue-100 sm:text-xs md:text-base">
+          <p className="text-gray-50 sm:text-xs md:text-base">
             redakcija@korakpokorak.ba
           </p>
         </div>
@@ -24,8 +24,9 @@ function Header() {
               <img className="" src={logo} alt="Logo" />
             </div>
             <div className="h-full w-96  text-xs md:text-base text-center font-semibold flex justify-center items-center">
-              Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum"
-              by Cicero are also reproduced in their exact original form.
+              Ljudi slabo pamte, to je ovde glavni problem, ko te lagao
+              godinama, lagaće te opet, ali zapitaj se dokle, kakav si to čovek,
+              ponizan i plašljiv, živiš bez slobode... B.S.
             </div>
           </div>
 
