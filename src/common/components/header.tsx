@@ -1,8 +1,10 @@
 import { FaEnvelope, FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 import MenuBar from "./menu_bar";
 import logo from "../../assets/logo-header-inv.png";
+import { useTranslation } from "react-i18next";
 
 function Header() {
+  const { t } = useTranslation();
   return (
     <>
       <div className="h-8 bg-[#24252f] w-full justify-center flex">
@@ -24,9 +26,7 @@ function Header() {
               <img className="" src={logo} alt="Logo" />
             </div>
             <div className="h-full w-96  text-xs md:text-base text-center font-semibold flex justify-center items-center">
-              Ljudi slabo pamte, to je ovde glavni problem, ko te lagao
-              godinama, lagaće te opet, ali zapitaj se dokle, kakav si to čovek,
-              ponizan i plašljiv, živiš bez slobode... B.S.
+              {t("headerQuote")}
             </div>
           </div>
 
