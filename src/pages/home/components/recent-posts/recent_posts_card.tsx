@@ -1,11 +1,10 @@
 import React from "react";
 import logo from "../../../../assets/logo-post.png";
+import PostFooterData from "../../../../common/components/post_footer_data";
 
-import { RecentPostType } from "../../../../schemas/recent-post/recent-post";
-import { format, parseISO } from "date-fns";
-import { FaClock, FaComment, FaHeart } from "react-icons/fa";
-import CategoryPill from "../../../../common/components/category_pill";
 import { useNavigate } from "react-router-dom";
+import CategoryPill from "../../../../common/components/category_pill";
+import { RecentPostType } from "../../../../schemas/recent-post/recent-post";
 
 const RecentPostsCard: React.FC<RecentPostType> = (post) => {
   const navigate = useNavigate();
@@ -29,7 +28,7 @@ const RecentPostsCard: React.FC<RecentPostType> = (post) => {
       />
 
       <div className="flex flex-col flex-1 pl-5">
-        <p className=" md:text-xl lg:text-2xl font-semibold mb-2 lg:mb-3 line-clamp-2">
+        <p className=" md:text-xl lg:text-2xl font-semibold line-clamp-2 mb-1">
           {post.title}
         </p>
 
@@ -39,32 +38,15 @@ const RecentPostsCard: React.FC<RecentPostType> = (post) => {
           })}
         </div>
 
-        <div className="flex flex-col flex-grow mb-1 ">
-          <p className="text-gray-500 text-sm font-medium flex-1 line-clamp-2 md:line-clamp-3">
+        <div className="flex flex-col flex-grow ">
+          <p className="text-gray-500 text-sm font-medium flex-1 line-clamp-2 md:line-clamp-3 my-2">
             {post.shortSummary}
           </p>
-          <div className="flex mb-2">
-            <div className="flex gap-1 items-center">
-              <FaClock></FaClock>
-              <p className="text-gray-500 text-sm font-semibold">
-                {format(parseISO(post.createdAt), "dd.MM.yyyy")}
-              </p>
-            </div>
-            <div className="w-4"></div>
-            <div className="flex gap-1 items-center">
-              <FaHeart></FaHeart>
-              <p className="text-gray-500 text-sm font-semibold">
-                {post.likes || 0}
-              </p>
-            </div>
-            <div className="w-4"></div>
-            <div className="flex gap-1 items-center">
-              <FaComment> </FaComment>
-              <p className="text-gray-500 text-sm font-semibold">
-                {post.comments || 0}
-              </p>
-            </div>
-          </div>
+          <PostFooterData
+            comments={post.comments}
+            createdAt={post.createdAt}
+            likes={post.likes}
+          />
         </div>
       </div>
     </div>
