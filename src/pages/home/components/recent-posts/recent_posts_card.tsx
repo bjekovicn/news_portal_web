@@ -17,7 +17,7 @@ const RecentPostsCard: React.FC<RecentPostType> = (post) => {
       }
     >
       <div
-        className="w-36 h-36 min-w-36 min-h-36 md:min-w-48 md:min-h-48 lg:min-w-56 lg:min-h-56 shadow-sm"
+        className="w-36 h-36 min-w-36 min-h-36 md:min-w-44 md:min-h-44 lg:min-w-56 lg:min-h-56 shadow-sm"
         style={{
           backgroundImage: `url('${post.coverMedia?.url || logo}')`,
           backgroundSize: "cover",
@@ -28,20 +28,21 @@ const RecentPostsCard: React.FC<RecentPostType> = (post) => {
       />
 
       <div className="flex flex-col flex-1 pl-5">
-        <p className=" md:text-xl lg:text-2xl font-semibold line-clamp-2 mb-1">
+        <p className=" font-semibold leading-tight line-clamp-2">
           {post.title}
         </p>
 
-        <div className="flex">
+        <div className="flex mt-1 md:my-1 lg:my-2">
           {post.categories.slice(0, 2).map((category) => {
             return <CategoryPill key={category.id} {...category} />;
           })}
         </div>
 
-        <div className="flex flex-col flex-grow ">
-          <p className="text-gray-500 text-sm font-medium flex-1 line-clamp-2 md:line-clamp-3 my-2">
+        <div className="flex-grow flex flex-col justify-between ">
+          <p className="text-gray-500 text-sm font-normal line-clamp-3 md:line-clamp-4 lg:line-clamp-5 ">
             {post.shortSummary}
           </p>
+
           <PostFooterData
             comments={post.comments}
             createdAt={post.createdAt}

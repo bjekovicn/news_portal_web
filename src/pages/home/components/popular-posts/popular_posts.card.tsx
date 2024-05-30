@@ -1,6 +1,5 @@
 import React from "react";
 import logo from "../../../../assets/logo-post.png";
-import CategoryPill from "../../../../common/components/category_pill";
 import PostFooterData from "../../../../common/components/post_footer_data";
 
 import { useNavigate } from "react-router-dom";
@@ -26,17 +25,16 @@ const PopularPostsCard: React.FC<RecentPostType> = (post) => {
           border: "1px solid #efefef",
         }}
       />
-      <div className="flex flex-col flex-1 pl-5">
-        <p className=" md:text-lg lg:text-xl font-semibold mb-2 line-clamp-2">
+      <div className="flex flex-col pl-5">
+        <p className=" font-semibold leading-tight line-clamp-2">
           {post.title}
         </p>
 
-        <div className="flex">
-          {post.categories.slice(0, 2).map((category) => {
-            return <CategoryPill key={category.id} {...category} />;
-          })}
-        </div>
-        <div className="flex flex-col flex-grow justify-end mb-2">
+        <div className="flex flex-col flex-grow justify-between ">
+          <p className="text-gray-500 text-sm font-normal leading-tight line-clamp-4 md:line-clamp-4 lg:line-clamp-4 my-1">
+            {post.shortSummary}
+          </p>
+
           <PostFooterData
             comments={post.comments}
             createdAt={post.createdAt}
