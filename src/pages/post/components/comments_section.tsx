@@ -30,7 +30,7 @@ const CommentsSection = () => {
 
   return (
     <>
-      <div className="flex flex-col text-clip mt-24">
+      <div className="flex flex-col text-clip mt-24 w-full">
         <div className="flex justify-between items-center mb-6 border-b-2 border-gray-100 ">
           <p className="text-2xl font-semibold"> {t("comments")}</p>
           <button
