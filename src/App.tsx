@@ -6,6 +6,7 @@ import Header from "./common/components/header";
 import HomePage from "./pages/home/home";
 import PostPage from "./pages/post/post";
 import PostsPage from "./pages/posts/posts";
+import AboutUsPage from "./pages/about/about";
 
 function App() {
   return (
@@ -13,9 +14,10 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<HomePage />}></Route>
-          <Route path="/posts" element={<PostsPage />}></Route>
-          <Route path="/posts/:slug" element={<PostPage />}></Route>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutUsPage />} />
+          <Route path="/posts" element={<PostsPage />} />
+          <Route path="/posts/:slug" element={<PostPage />} />
         </Routes>
       </BrowserRouter>
       <Footer />
