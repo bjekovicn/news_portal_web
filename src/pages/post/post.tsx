@@ -10,6 +10,7 @@ import { PostDetailsSchema } from "../../schemas/post-details-schema";
 import PopularPostsLayout from "../home/components/popular-posts/popular_posts_layout";
 import CalendarSection from "../home/components/calendar-section";
 import CategoriesSection from "../home/components/categories-section";
+import LikesSection from "./components/likes_section";
 
 const retrievePostData = async (id: string | undefined) => {
   if (!id) return null;
@@ -51,6 +52,10 @@ const PostPage = () => {
         )}
 
         <BlocksRenderer content={data?.attributes.content} />
+        {data !== null && data?.attributes.likes !== null && (
+          <LikesSection likes={data!.attributes!.likes} postId={data!.id} />
+        )}
+
         <CommentsSection />
       </div>
       <div className="flex-1 flex-col">
