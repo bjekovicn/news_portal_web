@@ -15,7 +15,7 @@ function Header() {
           <div className="w-px h-4 bg-gray-400 mx-1"></div>
           <FaEnvelope className="text-white cursor-pointer" />
           <p className="text-gray-50 sm:text-xs md:text-base">
-            redakcija@korakpokorak.ba
+            redakcija@korakpokorak.net
           </p>
         </div>
       </div>
