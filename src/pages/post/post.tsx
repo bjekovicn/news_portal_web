@@ -7,6 +7,10 @@ import { BeatLoader } from "react-spinners";
 import { useLocation } from "react-router-dom";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 import { PostDetailsSchema } from "../../schemas/post-details-schema";
+import PopularPostsLayout from "../home/components/popular-posts/popular_posts_layout";
+import CalendarSection from "../home/components/calendar-section";
+import CategoriesSection from "../home/components/categories-section";
+import LikesSection from "./components/likes_section";
 
 const retrievePostData = async (id: string | undefined) => {
   if (!id) return null;
@@ -30,24 +34,35 @@ const PostPage = () => {
   const url = coverAttributes?.url;
 
   return (
-    <div className="container lg:px-20 flex flex-col p-4">
-      <p className="text-2xl font-bold mb-4 mt-6 text-start">
-        {data?.attributes.title}
-      </p>
-      <PostInfo
-        categories={data?.attributes.categories.data ?? []}
-        createdAt={data?.attributes.createdAt}
-      />
-      <p className="mt-6">{data?.attributes.shortSummary}</p>
-      {(coverFormats || url) && (
-        <img
-          className="my-6 lg:my-10"
-          src={coverFormats?.large?.url ?? coverFormats?.medium?.url ?? url}
-        ></img>
-      )}
+    <div className="container flex flex-col md:flex-row mt-4 lg:px-20 gap-6">
+      <div className="flex flex-col p-4">
+        <p className="text-2xl font-bold mb-4  text-start">
+          {data?.attributes.title}
+        </p>
+        <PostInfo
+          categories={data?.attributes.categories.data ?? []}
+          createdAt={data?.attributes.createdAt}
+        />
+        <p className="mt-6">{data?.attributes.shortSummary}</p>
+        {(coverFormats || url) && (
+          <img
+            className="my-6 lg:my-10"
+            src={coverFormats?.large?.url ?? coverFormats?.medium?.url ?? url}
+          ></img>
+        )}
 
-      <BlocksRenderer content={data?.attributes.content} />
-      <CommentsSection />
+        <BlocksRenderer content={data?.attributes.content} />
+        {data !== null && data?.attributes.likes !== null && (
+          <LikesSection likes={data!.attributes!.likes} postId={data!.id} />
+        )}
+
+        <CommentsSection />
+      </div>
+      <div className="flex-1 flex-col">
+        <PopularPostsLayout />
+        <CalendarSection />
+        <CategoriesSection />
+      </div>
     </div>
   );
 };

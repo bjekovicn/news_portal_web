@@ -1,10 +1,8 @@
 import React from "react";
 import logo from "../../../../assets/logo-post.png";
-import CategoryPill from "../../../../common/components/category_pill";
+import PostFooterData from "../../../../common/components/post_footer_data";
 
-import { format, parseISO } from "date-fns";
 import { useNavigate } from "react-router-dom";
-import { FaClock, FaComment, FaHeart } from "react-icons/fa";
 import { RecentPostType } from "../../../../schemas/recent-post/recent-post";
 
 const PopularPostsCard: React.FC<RecentPostType> = (post) => {
@@ -27,39 +25,21 @@ const PopularPostsCard: React.FC<RecentPostType> = (post) => {
           border: "1px solid #efefef",
         }}
       />
-      <div className="flex flex-col flex-1 pl-5">
-        <p className=" md:text-lg lg:text-xl font-semibold mb-2 line-clamp-2">
+      <div className="flex flex-col pl-5">
+        <p className=" font-semibold leading-tight line-clamp-2">
           {post.title}
         </p>
 
-        <div className="flex">
-          {post.categories.slice(0, 2).map((category) => {
-            return <CategoryPill key={category.id} {...category} />;
-          })}
-        </div>
-        <div className="flex flex-col flex-grow justify-end mb-4">
-          <div className="flex">
-            <div className="flex gap-1 items-center">
-              <FaClock></FaClock>
-              <p className="text-gray-500 text-sm font-semibold">
-                {format(parseISO(post.createdAt), "dd.MM.yyyy")}
-              </p>
-            </div>
-            <div className="w-4"></div>
-            <div className="flex gap-1 items-center">
-              <FaHeart></FaHeart>
-              <p className="text-gray-500 text-sm font-semibold">
-                {post.likes || 0}
-              </p>
-            </div>
-            <div className="w-4"></div>
-            <div className="flex gap-1 items-center">
-              <FaComment> </FaComment>
-              <p className="text-gray-500 text-sm font-semibold">
-                {post.comments || 0}
-              </p>
-            </div>
-          </div>
+        <div className="flex flex-col flex-grow justify-between ">
+          <p className="text-gray-500 text-sm font-normal leading-tight line-clamp-4 md:line-clamp-4 lg:line-clamp-4 my-1">
+            {post.shortSummary}
+          </p>
+
+          <PostFooterData
+            comments={post.comments}
+            createdAt={post.createdAt}
+            likes={post.likes}
+          />
         </div>
       </div>
     </div>

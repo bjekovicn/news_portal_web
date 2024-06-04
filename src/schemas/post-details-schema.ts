@@ -16,5 +16,6 @@ export const PostDetailsSchema = z.object({
     coverMedia: z.object({
       data: z.object({ attributes: CoverMediaSchema.nullable() }).nullable(),
     }),
+    likes: z.number().nullable(),
   }),
 });

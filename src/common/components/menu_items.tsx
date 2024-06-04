@@ -8,7 +8,7 @@ const MenuItems = () => {
     { href: "/", title: t("homePage") },
     { href: "/posts", title: t("postsPage") },
     { href: "/about", title: t("aboutPage") },
-    { href: "/contact", title: t("contactPage") },
+    { href: "/contact", title: t("contactPage.menuTitle") },
   ];
 
   return (

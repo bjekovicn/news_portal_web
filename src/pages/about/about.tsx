@@ -4,60 +4,83 @@ const AboutUsPage: React.FC = () => {
   return (
     <div className="container lg:px-24 py-6">
       <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-2">Dobrodošli</h2>
+        <h2 className="text-2xl font-semibold mb-2">О нама</h2>
         <p className="text-lg">
-          Dobrodošli na naš sajt, vaš pouzdan izvor informacija i analiza. Naša
-          misija je da vam pružimo tačne, pravovremene i relevantne informacije
-          koje se tiču opštine Sokolac, ali i šireg geopolitickog konteksta.
+          Активним радом до боље будућности, без оптуживања и критике. Портал
+          <strong>"Корак по корак"</strong> нуди платформу за конструктивне
+          идеје, и промоцију кандидата кроз дјела, а не ријечи.
+        </p>
+        <p className="text-lg mt-4">
+          Овај портал примарно служи артикулацији и приказу потреба колектива
+          општине Соколац, а секундарно промоцији политичких актера који овим
+          путем могу приказати остварени допринос и самим тим формирати
+          позитиван имиџ, заснован на дјелима.{" "}
+          <strong>
+            Сврха нашег дјеловања НИЈЕ КРИТИКА ВЛАСТИ, НИТИ ТРАЖЕЊЕ БИЛО КАКВОГ
+            КРИВЦА ЗА ПОСТОЈЕЋЕ ПРОБЛЕМЕ.{" "}
+          </strong>
+          Кривце за незавидно стање у којем се налази цјелокупна Општина - Град
+          – Ентитет – Држава, можете наћи по цијелом свијету, од истока до
+          запада, како у прошлом вијеку, тако и данас.
+        </p>
+        <p className="text-lg mt-4">
+          Умјесто да уперимо прстом у било кога, дозволићемо кандидатима на
+          предстојећим локалним изборима да се промовишу јединим смисленим путем
+          кроз активан допринос општини, с тим што ћемо им у сарадњи са
+          грађанима, пружити јасан увид у њене запостављене дијелове. Од
+          заинтересованих чланова Соколачког колектива којима је стало до
+          општине и њене будућности, очекујемо активну подршку у виду слања
+          конструктивних приједлога, различитих идеја у које вриједи улагати, и
+          уопштено било каквих информација које би могле бити корисне.
+        </p>
+        <p className="text-lg">
+          О томе да дјела чине идентитет човјека, а не ствари које он посједује,
+          говори или мисли о себи, писали су бројни мислиоци. Ово правило важи,
+          како за политичаре, тако и за остале грађане, укључујући уреднике
+          портала „Корак по корак“.
         </p>
       </section>
 
       <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-2">Ko smo mi?</h2>
+        <h2 className="text-2xl font-semibold mb-2">Добродошли</h2>
         <p className="text-lg">
-          Mi smo tim strastvenih novinara i analitičara posvećenih istraživanju
-          i razumevanju trenutnih događaja. Naš cilj je da vam pomognemo da
-          bolje razumete složene društvene, političke i ekonomske situacije koje
-          oblikuju našu svakodnevnicu.
+          Добродошли на наш сајт. Наша мисија је интеграција интереса свих
+          друштвених слојева, у сврху превазилажења већ постојећих, и превенцији
+          потенцијалних криза.
         </p>
       </section>
 
       <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-2">Šta radimo?</h2>
+        <h2 className="text-2xl font-semibold mb-2">Ко смо ми?</h2>
+        <p className="text-lg">Ми смо наша дјела.</p>
+      </section>
+
+      <section className="mb-8">
+        <h2 className="text-2xl font-semibold mb-2">Шта радимо?</h2>
         <ul className="list-disc list-inside text-lg">
           <li>
-            <strong>Novinarstvo</strong>: Objavljujemo najnovije vesti i
-            reportaže iz opštine Sokolac, pokrivajući sve aspekte lokalnog
-            života.
-          </li>
-          <li>
-            <strong>Analiza</strong>: Nudimo detaljne analize trenutnih
-            situacija i događaja koji utiču na našu zajednicu.
-          </li>
-          <li>
-            <strong>Komentari</strong>: Naši stručni komentatori pružaju uvid i
-            mišljenja o širim geopolitičkim temama, pomažući vam da shvatite
-            globalne trendove i njihove lokalne implikacije.
+            Анализа – Нудимо детаљне анализе, како потреба, тако и догађаја
+            значајних за општину
           </li>
         </ul>
       </section>
 
       <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-2">Naša vizija</h2>
+        <h2 className="text-2xl font-semibold mb-2">Наша визија</h2>
         <p className="text-lg">
-          Verujemo da kvalitetno novinarstvo može doprineti boljem društvu. Naša
-          vizija je da budemo vodeći izvor informacija i analize za opštinu
-          Sokolac, kao i pouzdan vodič kroz složeni svet geopolitike. Težimo
-          transparentnosti, objektivnosti i integritetu u svim našim radovima.
+          Вјерујемо да ће транспарентност и информисаност допринијети
+          ефикаснијем рјешавању проблема грађана па самим тим и бољем управљању
+          општином. Наша визија је портал који је катализатор за развој и
+          напредак Соколца.
         </p>
       </section>
 
       <section>
-        <h2 className="text-2xl font-semibold mb-2">Kontaktirajte nas</h2>
+        <h2 className="text-2xl font-semibold mb-2">Контактирајте нас</h2>
         <p className="text-lg">
-          Uvek smo otvoreni za vaše povratne informacije, sugestije i pitanja.
-          Kontaktirajte nas putem naše kontakt stranice, društvenih mreža ili
-          nam pošaljite email na{" "}
+          Увек смо отворени за ваше повратне информације, сугестије и питања.
+          Контактирајте нас путем наше контакт странице, друштвених мрежа или
+          нам пошаљите емаил на{" "}
           <a href="mailto:redakcija@korakpokorak.net" className="text-blue-500">
             redakcija@korakpokorak.net
           </a>
@@ -65,8 +88,8 @@ const AboutUsPage: React.FC = () => {
       </section>
 
       <p className="text-lg mt-8">
-        Hvala što nas pratite i verujete nam da vam pružamo najvažnije i
-        najtačnije informacije.
+        Хвала што нас пратите и верујете нам да вам пружамо најважније и
+        најтачније информације.
       </p>
     </div>
   );

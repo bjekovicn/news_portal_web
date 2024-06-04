@@ -21,12 +21,12 @@ const LatestPostsCard: React.FC<LatestPostType> = (post) => {
       }}
     >
       <div className="p-4">
-        <div className="flex">
+        <div className="flex mb-2">
           {post.categories.length > 0 && (
             <CategoryPill key={post.categories[0].id} {...post.categories[0]} />
           )}
         </div>
-        <div className="font-bold text-gray-100 text-left text-sm md:text-lg lg:text-xl  md:mb-2 drop-shadow-[0_1.6px_1.6px_rgba(0,0,0,0.5)] line-clamp-3">
+        <div className="font-bold text-gray-100 text-left md:mb-2 drop-shadow-[0_1.6px_1.6px_rgba(0,0,0,0.5)] line-clamp-3 leading-tight lg:text-xl">
           {post.title}
         </div>
         <div className="flex flex-row">
