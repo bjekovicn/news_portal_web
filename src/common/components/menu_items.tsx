@@ -3,6 +3,8 @@ import { useTranslation } from "react-i18next";
 import { FaBars } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 
+// import logo from "../../assets/logo-footer.png";
+
 const MenuItems = () => {
   const { t } = useTranslation();
   const location = useLocation();
@@ -14,8 +16,10 @@ const MenuItems = () => {
     { href: "/contact", title: t("contactPage.menuTitle") },
   ];
 
+  const closeDrawer = () => setIsOpen(false);
+
   return (
-    <div className="w-full">
+    <div className="w-full relative">
       {/* Mobile menu button */}
       <div className="md:hidden flex justify-between items-center ml-2 ">
         <button
@@ -26,11 +30,19 @@ const MenuItems = () => {
         </button>
       </div>
 
+      {/* Overlay */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black opacity-50 z-40"
+          onClick={closeDrawer}
+        ></div>
+      )}
+
       {/* Mobile drawer menu */}
       <div
         className={`fixed inset-y-0 left-0 bg-[#24252f] transform ${
           isOpen ? "translate-x-0" : "-translate-x-full"
-        } transition-transform duration-300 ease-in-out md:hidden w-1/2 h-full z-50`}
+        } transition-transform duration-300 ease-in-out md:hidden w-1/2 h-full z-50 flex flex-col justify-between`}
       >
         <ul className="flex flex-col mt-4 ml-2 space-y-2">
           {links.map((link) => (
@@ -44,12 +56,16 @@ const MenuItems = () => {
                   backgroundColor:
                     location.pathname === link.href ? "#3a3b45" : "",
                 }}
+                onClick={closeDrawer}
               >
                 {link.title}
               </a>
             </li>
           ))}
         </ul>
+        {/* <div className="mb-4">
+          <img src={logo} alt="Your Alt Text" className="w-full" />
+        </div> */}
       </div>
 
       {/* Desktop menu */}
