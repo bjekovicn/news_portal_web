@@ -1,25 +1,45 @@
 {
-  "homePage":"Početna",
-  "aboutPage":"O nama",
-  "postsPage":"Objave",
-  "contactPage":"Pišite nam",
-  "recentPosts":"Zadnje objave",
-  "popularPosts":"Popularne objave",
-  "calendar":"Kalendar",
-  "categories":"Kategorije",
-  "footerQuote":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed.",
-  "enterEmail":"Unesite Vašu mejl adresu",
-  "subscribe":"Pretplati se",
-  "subscribeWarning":"Pretplatom se slažete sa našom politikom privatnosti!",
-  "comments":"Komentari",
-  "sendComment":"Pošaljite komentar",
-  "noCommentsOnPost":"Ovaj članak trenutno nema komentare",
-  "reply":"Odgovori",
-  "successfullySent":"Uspješno poslato",
+  "portalEmail":"redakcija@korakpokorak.net",
+  "portalInstagram":"@korakpokorak_sokolac",
+  "portalFacebook":"Korak Po Korak Sokolac",
+  "homePage":"Почетна",
+  "aboutPage":"О нама",
+  "postsPage":"Објаве",
+  "recentPosts":"Задње објаве",
+  "popularPosts":"Популарне објаве",
+  "calendar":"Календар",
+  "categories":"Категорије",
+  "headerQuote":"Људи слабо памте, то је овде главни проблем, ко те лагао годинама, лагаће те опет, али запитај се докле, какав си то човек, понизан и плашљив, живиш без слободе... Б.С.",
+  "footerQuote":"Познато је да ће читаоца ометати читљив садржај странице када гледа њен распоред. Поента коришћења Lorem Ipsum-а је да има више-мање нормалну дистрибуцију слова, за разлику од.",
+  "enterEmail":"Унесите Вашу мејл адресу",
+  "subscribe":"Претплатите се",
+  "subscribeWarning":"Претплатом се слажете са нашом политиком приватности!",
+  "comments":"Коментари",
+  "sendComment":"Пошаљите коментар",
+  "noCommentsOnPost":"Овај чланак тренутно нема коментаре",
+  "reply":"Одговори",
+  "successfullySent":"Успјешно послато",
   "addComment":{
-    "name":"Vaše ime",
-    "writeComment":"Napišite vaš komentar ovdje",
-    "commentWarning":"  Komentari koji sadrže uvrede ili izraze mržnje prema bilo kome neće biti tolerisani. Molimo vas da izrazite svoje mišljenje na konstruktivan i poštovan način. Hvala Vam na razumijevanju i poštovanju ovih pravila.",
-    "sendComment":"Pošaljite komentar"
+    "name":"Ваше име",
+    "writeComment":"Напишите ваш коментар овдје",
+    "commentWarning":"  Коментари који садрже увреде или изразе мржње према било коме неће бити толерисани. Молимо вас да изразите своје мишљење на конструктиван и поштован начин. Хвала Вам на разумијевању и поштовању ових правила.",
+    "sendComment":"Пошаљите коментар"
+  },
+  "likes":"свиђања",
+  "contactPage":{
+    "menuTitle":"Пишите нам",
+    "title":"Добродошли на нашу контакт страницу!",
+    "subtitle1":" Цијенимо ваше повратне информације и овдје смо да вам помогнемо са било каквим питањима или недоумицама. Са нама можете ступити у контакт преко различитих канала. Повежите се са нашом Фејсбук или Инстаграм страницом, и будите у току са најновијим информацијама. Будите слободни да нам пошаљете поруку или коментаришите наше објаве. Контактирајте нас путем имејла, пошаљите детаљна питања или подијелите своје мисли са нама.",
+    "subtitle2":"Користите контакт форму испод да нам пошаљете поруку анонимно са ове странице. Шаљите нам ваше приједлоге, критике и било каква занимљива питања. Ваши коментари нам помажу да се побољшамо и пружимо боље услуге. Хвала што сте нас контактирали!",
+    "cardsContact":{
+      "instagram":"Контактирајте нас путем Инстаграм налога",
+      "email":"Контактирајте нас путем имејла",
+      "facebook":"Контактирајте нас путем Фејсбук налога"
+    },
+    "formContact":{
+      "name":"Унесите ваше име (није обавезно)",
+      "question":"Напишите ваш коментар, питање или критику овдје",
+      "description":"Циjенимо ваше повратне информације и охрабрујемо вас да нам пошаљете конкретне приjедлоге или питања. Ваши коментари су нам важни и помажу нам да побољшамо наше услуге. Хвала вам што се трудите да нам пружите корисне и конструктивне информације. Ваш идентитет ће остати анониман, тако да не морате уносити своје име. "
+    }
   }
 }
