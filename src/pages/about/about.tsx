@@ -2,7 +2,7 @@ import React from "react";
 
 const AboutUsPage: React.FC = () => {
   return (
-    <div className="container lg:px-24 py-6">
+    <div className="container lg:px-24 py-6 px-4">
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-2">О нама</h2>
         <p className="text-lg">
