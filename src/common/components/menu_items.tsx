@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { FaBars } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 
 const MenuItems = () => {
   const { t } = useTranslation();
   const location = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
   const links = [
     { href: "/", title: t("homePage") },
     { href: "/posts", title: t("postsPage") },
@@ -12,31 +15,67 @@ const MenuItems = () => {
   ];
 
   return (
-    <div
-      className="hidden md:flex justify-between items-center w-full md:w-auto md:order-1"
-      id="mobile-menu-3"
-    >
-      <ul className="flex-col md:flex-row flex  mt-4 ml-2 md:mt-0 md:text-sm ">
-        {links.map((link) => (
-          <li key={link.href}>
-            <a
-              href={link.href}
-              className={
-                "block hover:text-white hover:bg-[#24252f] px-4 py-2  "
-              }
-              aria-current={link.title === "HOME" ? "page" : undefined}
-              style={{
-                fontSize: "1.25rem",
-                backgroundColor:
-                  location.pathname === link.href ? "#24252f" : "",
-                color: location.pathname === link.href ? "white" : "",
-              }}
-            >
-              {link.title}
-            </a>
-          </li>
-        ))}
-      </ul>
+    <div className="w-full">
+      {/* Mobile menu button */}
+      <div className="md:hidden flex justify-between items-center ml-2 ">
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="text-gray-500 hover:text-white focus:outline-none focus:text-white"
+        >
+          {<FaBars className="h-6 w-6 text-[#24252f]" />}
+        </button>
+      </div>
+
+      {/* Mobile drawer menu */}
+      <div
+        className={`fixed inset-y-0 left-0 bg-[#24252f] transform ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        } transition-transform duration-300 ease-in-out md:hidden w-1/2 h-full z-50`}
+      >
+        <ul className="flex flex-col mt-4 ml-2 space-y-2">
+          {links.map((link) => (
+            <li key={link.href}>
+              <a
+                href={link.href}
+                className={"block text-white px-4 py-2 rounded"}
+                aria-current={link.title === "HOME" ? "page" : undefined}
+                style={{
+                  fontSize: "1.25rem",
+                  backgroundColor:
+                    location.pathname === link.href ? "#3a3b45" : "",
+                }}
+              >
+                {link.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Desktop menu */}
+      <div className="hidden md:flex justify-between items-center w-full md:w-auto md:order-1">
+        <ul className="flex-col md:flex-row flex mt-4 ml-2 md:mt-0 md:text-sm">
+          {links.map((link) => (
+            <li key={link.href}>
+              <a
+                href={link.href}
+                className={
+                  "block hover:text-white hover:bg-[#24252f] px-4 py-2"
+                }
+                aria-current={link.title === "HOME" ? "page" : undefined}
+                style={{
+                  fontSize: "1.25rem",
+                  backgroundColor:
+                    location.pathname === link.href ? "#24252f" : "",
+                  color: location.pathname === link.href ? "white" : "",
+                }}
+              >
+                {link.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

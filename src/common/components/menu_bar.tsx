@@ -5,7 +5,6 @@ const MenuBar = () => {
     <>
       <div className="flex flex-row justify-between w-full pb-1">
         <MenuItems></MenuItems>
-        {/* <Search></Search> */}
       </div>
     </>
   );
