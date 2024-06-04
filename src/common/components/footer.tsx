@@ -9,7 +9,7 @@ function Footer() {
     <div className="flex w-full mt-10 h-96 flex-col">
       <div className="w-full flex flex-col md:flex-row h-full bg-gray-950 justify-center items-center gap-2">
         <div className="flex flex-1 justify-center items-center">
-          <img className="bg-white w-60" src={logo} alt="Logo" />
+          <img className="bg-white w-52" src={logo} alt="Logo" />
         </div>
         <p className="text-white text-xs md:text-sm lg:text-lg text-center flex-1 items-center justify-center mx-8">
           {t("footerQuote")}

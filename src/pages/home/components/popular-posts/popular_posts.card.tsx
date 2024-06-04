@@ -31,7 +31,7 @@ const PopularPostsCard: React.FC<RecentPostType> = (post) => {
         </p>
 
         <div className="flex flex-col flex-grow justify-between ">
-          <p className="text-gray-500 text-sm font-normal leading-tight line-clamp-4 md:line-clamp-4 lg:line-clamp-4 my-1">
+          <p className="text-gray-500 text-sm font-normal leading-tight line-clamp-3 md:line-clamp-4 lg:line-clamp-4 my-1">
             {post.shortSummary}
           </p>
 
