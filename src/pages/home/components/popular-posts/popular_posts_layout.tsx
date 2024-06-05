@@ -4,20 +4,20 @@ import PopularPostsCard from "./popular_posts.card";
 import SectionTitle from "../../../../common/components/section_title";
 
 import { useQuery } from "react-query";
-import { RecentPostPayloadSchema } from "../../../../schemas/recent-post/recent-posts-payload";
 import { BeatLoader } from "react-spinners";
 import { useTranslation } from "react-i18next";
+import { RecentPostSchema } from "../../../../schemas/recent-post/recent-post";
 
-const retrievePostReports = async () => {
-  const response = await axios.get(`posts-report/recent`);
+const retrievePopularPosts = async () => {
+  const response = await axios.get(`posts-report/popular`);
 
-  const posts = RecentPostPayloadSchema.parse(response);
+  const posts = RecentPostSchema.array().parse(response);
   return posts;
 };
 
 const PopularPostsLayout = () => {
-  const { data, error, isLoading } = useQuery(`postReports/recent}`, () =>
-    retrievePostReports()
+  const { data, error, isLoading } = useQuery(`postReports/popular}`, () =>
+    retrievePopularPosts()
   );
   const { t } = useTranslation();
 
@@ -30,7 +30,7 @@ const PopularPostsLayout = () => {
           <BeatLoader className="my-6" />
         </div>
       ) : (
-        data.posts.map((post) => {
+        data.map((post) => {
           return <PopularPostsCard key={post.id} {...post} />;
         })
       )}
