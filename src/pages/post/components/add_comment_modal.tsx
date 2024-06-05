@@ -9,7 +9,8 @@ const AddCommentModal: React.FC<{
   isOpen: boolean;
   onClose: () => void;
   postId: number;
-}> = ({ isOpen, onClose, postId }) => {
+  commentId: number;
+}> = ({ isOpen, onClose, postId, commentId }) => {
   return (
     <>
       <Modal
@@ -20,6 +21,7 @@ const AddCommentModal: React.FC<{
         overlayClassName="fixed inset-0 bg-gray-500 bg-opacity-75"
       >
         <AddComment
+          commentId={commentId}
           postId={postId}
           onSubmitCallback={() => {
             onClose();
