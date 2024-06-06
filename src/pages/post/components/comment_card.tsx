@@ -11,6 +11,7 @@ interface CommentCardProps extends CommentType {
 }
 
 const CommentCard: React.FC<CommentCardProps> = ({
+  id,
   isReply,
   author,
   content,
@@ -26,6 +27,7 @@ const CommentCard: React.FC<CommentCardProps> = ({
     <>
       <AddCommentModal
         postId={postId}
+        commentId={id}
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
       />

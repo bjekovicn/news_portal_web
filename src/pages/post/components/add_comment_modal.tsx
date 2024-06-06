@@ -2,14 +2,15 @@ import React from "react";
 import Modal from "react-modal";
 import AddComment from "./add_comments";
 
-import { Bounce, ToastContainer, toast } from "react-toastify";
+import { Bounce, toast } from "react-toastify";
 import { t } from "i18next";
 
 const AddCommentModal: React.FC<{
   isOpen: boolean;
   onClose: () => void;
   postId: number;
-}> = ({ isOpen, onClose, postId }) => {
+  commentId: number | null;
+}> = ({ isOpen, onClose, postId, commentId }) => {
   return (
     <>
       <Modal
@@ -20,6 +21,7 @@ const AddCommentModal: React.FC<{
         overlayClassName="fixed inset-0 bg-gray-500 bg-opacity-75"
       >
         <AddComment
+          commentId={commentId}
           postId={postId}
           onSubmitCallback={() => {
             onClose();
@@ -37,18 +39,6 @@ const AddCommentModal: React.FC<{
           }}
         />
       </Modal>
-      <ToastContainer
-        position="bottom-right"
-        autoClose={2200}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
     </>
   );
 };

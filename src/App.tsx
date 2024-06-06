@@ -8,6 +8,7 @@ import PostPage from "./pages/post/post";
 import PostsPage from "./pages/posts/posts";
 import AboutUsPage from "./pages/about/about";
 import ContactUsPage from "./pages/contact/contact";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
@@ -23,6 +24,18 @@ function App() {
         </Routes>
       </BrowserRouter>
       <Footer />
+      <ToastContainer
+        position="bottom-right"
+        autoClose={2200}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </>
   );
 }
