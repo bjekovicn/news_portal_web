@@ -11,7 +11,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 const AddComment: React.FC<{
   onSubmitCallback: () => void;
   postId: number;
-  commentId: number;
+  commentId: number | null;
 }> = ({ onSubmitCallback, postId, commentId }) => {
   const onSubmit: SubmitHandler<PostCommentSchemaType> = async (data) => {
     await axios.post(`comments-report/${postId}/post-comment`, {
