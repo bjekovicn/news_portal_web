@@ -1,24 +1,66 @@
+import emailjs from "@emailjs/browser";
+
 import { t } from "i18next";
+import { Bounce, toast } from "react-toastify";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { SubmitHandler, useForm } from "react-hook-form";
+import {
+  PostFormMessageSchema,
+  PostFormMessageSchemaType,
+} from "../../../schemas/post-form-message-schema";
 
 const ContactFormLayout = () => {
-  return (
-    <div className="flex flex-1">
-      <form onSubmit={() => {}}>
-        <div className=" shadow-lg bg-gray-200 bg-opacity-20 p-2 gap-2 py-4 px-6 flex flex-col items-center">
-          <input
-            placeholder={t("contactPage.formContact.name")}
-            className="text-black px-4 py-2  border border-gray-200 border-solid w-full"
-            // {...register("name")}
-          />
-          {/* {errors.name && <span>{errors.name.message}</span>} */}
+  const onSubmit: SubmitHandler<PostFormMessageSchemaType> = (data) => {
+    //
+    emailjs.init(import.meta.env.VITE_EMAIL_USER_ID);
+    emailjs
+      .send(
+        import.meta.env.VITE_EMAIL_SERVICE_ID,
+        import.meta.env.VITE_EMAIL_TEMPLATE_ID,
+        data
+      )
+      .then(() => {
+        toast(t("successfullySent"), {
+          position: "bottom-right",
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+          progressStyle: { background: "#d22477" },
+        });
+        reset();
+      })
+      .catch(() => {
+        //
+      });
+  };
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<PostFormMessageSchemaType>({
+    resolver: zodResolver(PostFormMessageSchema),
+  });
+
+  return (
+    <div className="flex flex-1 ">
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className=" shadow-lg bg-gray-200 bg-opacity-20 p-2 gap-2 py-4 px-6 flex flex-col items-center">
+          <p className="text-lg py-1 text-gray-500">
+            {t("contactPage.formContact.contactUsAnonymously")}
+          </p>
           <textarea
             rows={6}
             placeholder={t("contactPage.formContact.question")}
             className="border border-gray-200 border-solid px-4 py-2 w-full resize-none"
-            // {...register("content")}
+            {...register("message")}
           />
-          {/* {errors.content && <span>{errors.content.message}</span>} */}
+          {errors.message && <span>{errors.message.message}</span>}
           <p className="text-gray-500 text-sm">
             {t("contactPage.formContact.description")}
           </p>
