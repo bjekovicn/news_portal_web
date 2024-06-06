@@ -56,6 +56,7 @@ const CommentsSection = () => {
 
         <AddCommentModal
           postId={id}
+          commentId={null}
           isOpen={isOpen}
           onClose={() => setIsOpen(false)}
         />
