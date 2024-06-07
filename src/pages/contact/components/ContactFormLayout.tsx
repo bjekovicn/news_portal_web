@@ -12,6 +12,7 @@ import {
 const ContactFormLayout = () => {
   const onSubmit: SubmitHandler<PostFormMessageSchemaType> = (data) => {
     //
+    reset();
     emailjs.init(import.meta.env.VITE_EMAIL_USER_ID);
     emailjs
       .send(
@@ -31,7 +32,6 @@ const ContactFormLayout = () => {
           transition: Bounce,
           progressStyle: { background: "#d22477" },
         });
-        reset();
       })
       .catch(() => {
         //
