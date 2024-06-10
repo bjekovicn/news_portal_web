@@ -1,4 +1,5 @@
 import React from "react";
+import logo from "../../../../assets/logo-post.png";
 import { format, parseISO } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import { LatestPostType } from "../../../../schemas/latest-post/latest-post";
@@ -11,7 +12,7 @@ const LatestPostsCard: React.FC<LatestPostType> = (post) => {
     <div
       className="m-1 h-56 flex-grow shadow-lg flex flex-col justify-end cursor-pointer"
       style={{
-        backgroundImage: `url('${post.coverMedia?.url}')`,
+        backgroundImage: `url('${post.coverMedia?.url || logo}')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
