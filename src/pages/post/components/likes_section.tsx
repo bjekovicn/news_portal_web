@@ -60,13 +60,13 @@ const LikesSection: React.FC<{
       {isLiked ? (
         <FaHeart
           size={30}
-          className="text-red-600 cursor-pointer ml-1"
+          className="text-red-600 cursor-pointer"
           onClick={unlikePost}
         />
       ) : (
         <FaRegHeart
           size={30}
-          className="text-red-600 cursor-pointer ml-1"
+          className="text-red-600 cursor-pointer"
           onClick={likePost}
         />
       )}
