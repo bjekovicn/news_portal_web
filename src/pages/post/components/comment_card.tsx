@@ -32,7 +32,7 @@ const CommentCard: React.FC<CommentCardProps> = ({
         onClose={() => setIsOpen(false)}
       />
       <div className={`flex mb-4 border-gray-100 border-solid ${borderStyle}`}>
-        <FaUser className="text-gray-400 w-8 h-8 mr-4 mt-2 ml-2" />
+        <FaUser className="text-gray-400 w-8 h-8 min-w-6 min-h-6 mr-4 mt-2 ml-2" />
 
         <div className="flex flex-col">
           <p className="text-lg font-bold">{author}</p>
