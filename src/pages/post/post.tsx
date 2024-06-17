@@ -1,49 +1,46 @@
 import axios from "../../config/axios";
-import PostInfo from "./components/post_info";
-import CommentsSection from "./components/comments_section";
 
 import { useQuery } from "react-query";
 import { BeatLoader } from "react-spinners";
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 import { PostDetailsSchema } from "../../schemas/post-details-schema";
-import PopularPostsLayout from "../home/components/popular-posts/popular_posts_layout";
+
+import PostInfo from "./components/post_info";
+import LikesSection from "./components/likes_section";
 import CalendarSection from "../home/components/calendar-section";
 import CategoriesSection from "../home/components/categories-section";
-import LikesSection from "./components/likes_section";
+import PopularPostsLayout from "../home/components/popular-posts/popular_posts_layout";
+import CommentsSection from "./components/comments_section";
 
-const retrievePostData = async (id: string | undefined) => {
-  if (!id) return null;
-  const response = await axios.get(`posts/${id}?populate=*`);
-  return PostDetailsSchema.parse(response.data);
+const retrievePostData = async (slug: string | undefined) => {
+  if (!slug) return null;
+  const response = await axios.get(`posts-report/find-by-slug/${slug}`);
+  return PostDetailsSchema.parse(response);
 };
 
 const PostPage = () => {
-  const { state } = useLocation();
-  const { id } = state;
+  const { slug } = useParams();
 
-  const { data, error, isLoading } = useQuery(`pd${id}`, () =>
-    retrievePostData(id)
+  const { data, error, isLoading } = useQuery(`${slug}`, () =>
+    retrievePostData(slug)
   );
 
   if (isLoading || error) {
     return <BeatLoader className="flex flex-grow my-96" />;
   }
-  const coverAttributes = data?.attributes.coverMedia?.data?.attributes;
-  const coverFormats = coverAttributes?.formats;
-  const url = coverAttributes?.url;
+  const coverFormats = data?.coverMedia?.formats;
+  const url = data?.coverMedia?.url;
 
   return (
     <div className="container flex flex-col md:flex-row mt-4 lg:px-20 gap-6">
       <div className="flex flex-col p-4">
-        <p className="text-2xl font-bold mb-4  text-start">
-          {data?.attributes.title}
-        </p>
+        <p className="text-2xl font-bold mb-4  text-start">{data?.title}</p>
         <PostInfo
-          categories={data?.attributes.categories.data ?? []}
-          createdAt={data?.attributes.createdAt}
+          categories={data?.categories ?? []}
+          createdAt={data?.createdAt}
         />
-        <p className="mt-6">{data?.attributes.shortSummary}</p>
+        <p className="mt-6">{data?.shortSummary}</p>
         {(coverFormats || url) && (
           <img
             className="my-6 lg:my-10"
@@ -51,12 +48,12 @@ const PostPage = () => {
           ></img>
         )}
 
-        <BlocksRenderer content={data?.attributes.content} />
-        {data !== null && data?.attributes.likes !== null && (
-          <LikesSection likes={data!.attributes!.likes} postId={data!.id} />
+        <BlocksRenderer content={data?.content} />
+        {data !== null && data?.likes !== null && (
+          <LikesSection likes={data!.likes} postId={data!.id} />
         )}
 
-        <CommentsSection />
+        {data && <CommentsSection id={data.id} />}
       </div>
       <div className="flex-1 flex-col">
         <PopularPostsLayout />

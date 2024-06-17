@@ -1,10 +1,10 @@
 import { FaRegClock } from "react-icons/fa";
 import CategoryPill from "../../../common/components/category_pill";
-import { CategoryType } from "../../../schemas/category-schema";
+import { ReducedCategoryType } from "../../../schemas/category-schema";
 import { format, parseISO } from "date-fns";
 
 const PostInfo: React.FC<{
-  categories: CategoryType[];
+  categories: ReducedCategoryType[];
   createdAt: string | undefined;
 }> = ({ categories, createdAt }) => {
   return (
@@ -15,7 +15,7 @@ const PostInfo: React.FC<{
             <CategoryPill
               key={category.id}
               id={category.id}
-              name={category.attributes.name}
+              name={category.name}
             />
           );
         })}

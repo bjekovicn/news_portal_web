@@ -1,26 +1,25 @@
+import "react-toastify/dist/ReactToastify.css";
+
 import CommentCard from "./comment_card";
 import axios from "../../../config/axios";
 import AddCommentModal from "./add_comment_modal";
-import "react-toastify/dist/ReactToastify.css";
 
 import { useState } from "react";
 import { useQuery } from "react-query";
-import { useLocation } from "react-router-dom";
 import { BeatLoader } from "react-spinners";
 import { useTranslation } from "react-i18next";
 import { CommentSchema } from "../../../schemas/comment-schema";
 
-const retrieveCommentsData = async (id: string | undefined) => {
+const retrieveCommentsData = async (id: number | undefined) => {
   if (!id) return [];
   const response = await axios.get(`comments-report/${id}`);
 
   return CommentSchema.array().parse(response);
 };
 
-const CommentsSection = () => {
+const CommentsSection: React.FC<{ id: number }> = ({ id }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { state } = useLocation();
-  const { id } = state;
+
   const { data, error, isLoading } = useQuery(`comments${id}`, () =>
     retrieveCommentsData(id)
   );
