@@ -53,7 +53,7 @@ const PostPage = () => {
           <LikesSection likes={data!.likes} postId={data!.id} />
         )}
 
-        {/* <CommentsSection /> */}
+        {data && <CommentsSection id={data.id} />}
       </div>
       <div className="flex-1 flex-col">
         <PopularPostsLayout />
