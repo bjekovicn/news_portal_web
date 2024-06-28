@@ -42,12 +42,15 @@ const AddComment: React.FC<{
           {...register("content")}
         />
         {errors.content && <span>{errors.content.message}</span>}
-        <p className="text-gray-500 text-sm">
+        <p className="text-gray-400 text-sm">
           {t("addComment.commentWarning")}
+        </p>
+        <p className="text-gray-700 text-sm font-bold text-center mt-1">
+          {t("addComment.commentWarning2")}
         </p>
         <button
           type="submit"
-          className="text-white px-4 bg-pink-600 py-2 mt-8 w-full"
+          className="text-white px-4 bg-pink-600 py-2 mt-4 w-full"
         >
           {t("addComment.sendComment")}
         </button>
