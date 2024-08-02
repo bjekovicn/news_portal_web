@@ -32,21 +32,28 @@ const LatestPostsLayout = () => {
 
       <div className="w-full md:w-1/2 flex flex-col">
         {data.length > 1 && (
-          <div className="h-1/2">
-            <LatestPostsCard key={data[1].id} {...data[1]} />
-          </div>
-        )}
-
-        {data.length > 2 && (
           <div className="h-1/2 flex">
+            <div className="w-1/2">
+              <LatestPostsCard key={data[1].id} {...data[1]} />
+            </div>
             {data.length > 2 && (
               <div className="w-1/2">
                 <LatestPostsCard key={data[2].id} {...data[2]} />
               </div>
             )}
+          </div>
+        )}
+
+        {data.length > 3 && (
+          <div className="h-1/2 flex">
             {data.length > 3 && (
               <div className="w-1/2">
                 <LatestPostsCard key={data[3].id} {...data[3]} />
+              </div>
+            )}
+            {data.length > 4 && (
+              <div className="w-1/2">
+                <LatestPostsCard key={data[4].id} {...data[4]} />
               </div>
             )}
           </div>
